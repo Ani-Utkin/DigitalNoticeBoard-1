@@ -42,7 +42,15 @@
 				        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
 				            <div class="carousel-inner w-100" role="listbox">
 				                <div class="carousel-item active">
-				                    <img width="900" height="1200" class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/NMSDC.png?10873">
+				                	<div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBoday>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
 				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/DBE-ACDBE-logo.png?10873">
@@ -144,7 +152,7 @@
               </div>
               <div class="col-sm-3">
               	<div class="shortnotice">
-              		<p>Raide available from Manning</p>
+              		<p>car raid available from Manning</p>
               		<p>Expaired by: 1:00 PM</p>
               	</div>	
               </div>  
