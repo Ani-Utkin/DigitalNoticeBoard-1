@@ -1,16 +1,23 @@
-// import './App.css';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
           <header className="App-header">
-              <div>Public</div>
-              <div>Group 1</div>
-              <div>Group 2</div>
-              <div>Profile Picture</div>
+              <div className="group-name">Public</div>
+              <div className="group-name">Group 1</div>
+              <div className="group-name">Group 2</div>
+              <div className="profile">Profile Picture</div>
           </header>
 
-          <main>This is the main page</main>
+          <main className="landing-page">
+              <section className="group-section">
+                  <h4>First Group</h4>
+              </section>
+              <section className="short-notices">
+                  <h4>Short Notices</h4>
+              </section>
+          </main>
     </div>
   );
 }
