@@ -12,11 +12,13 @@ body {
     box-sizing: border-box;
     background-color: white;
     max-width: 200px;
-    border-radius: 2px;
+    border-radius: 10px;
+    margin: 10px
 }  
 
 .NoticeHeader{
     background-color: yellow;
+    border-radius: 10px 10px 0px 0px;
     color: violet
 }
 

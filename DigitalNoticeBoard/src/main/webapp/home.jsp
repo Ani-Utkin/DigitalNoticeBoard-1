@@ -290,7 +290,7 @@
                <div>
                 <h2>Short Notices</h2>
                 <div class="shortnotice">
-              		<p>car raid available from Manning</p>
+              		<p>car ride available from Manning</p>
               		<p>Expaired by: 1:00 PM</p>
               	</div>
                </div>
