@@ -5,11 +5,44 @@ body {
     font-size: 2rem;
 }
 
+.Notice{
+	border: 2px solid black;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: white;
+    max-width: 200px;
+    border-radius: 2px;
+}  
+
+.NoticeHeader{
+    background-color: yellow;
+    color: violet
+}
+
+.NoticeBody{
+	background-color: white;
+	color: black;
+}
+
+.channel{
+	margin-top:10px;
+	margin-bottom:20px;
+	border-top:2px solid black;
+	border-bottom:2px solid black;
+	background-color: #474747;
+	color: white;
+}
+
+.shortnotice{
+	background-color: yellow;
+}
+
 .form-signin {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
-}
+
 
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -160,6 +193,9 @@ header {
 	background-color: yellow;
 	color: black;
 	border: 2px solid black;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .maincontent {
@@ -172,18 +208,19 @@ header {
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    background-color: green;
-  background-image:url(image2.jpg);
-  background-repeat: repeat;
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-  animation: marquee 30s infinite linear;
+    background-color: #474747;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    animation: marquee 30s infinite linear;
 }
-code {
+
+.code {
     padding: 4px;
     background-color: #333;
     border-radius: 5px;
   }
+  
+
 
 @keyframes marquee {
   0% {

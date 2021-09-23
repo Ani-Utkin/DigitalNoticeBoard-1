@@ -36,113 +36,249 @@
 	    <section id="">
 			<div class="item row align-items-center">
               <div class="col-sm-9">
-			    <div class="container">
+			    <div class="channel">
 				    <h2>University</h2>
 				    <div class="row mx-auto my-auto">
-				        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+				        <div id="carousel1" class="carousel slide w-100" data-ride="carousel">
 				            <div class="carousel-inner w-100" role="listbox">
 				                <div class="carousel-item active">
 				                	<div class="Notice">
 				                		<div class="NoticeHeader">
 				                		<h2>Covid-19 Mask Requirement</h2>
 				                		</div>
-				                		<div class=NoticeBoday>
+				                		<div class=NoticeBody>
 				                		<p>Full facemask is required for all campus activity </p>
 				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
 				                		</div>
 				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/DBE-ACDBE-logo.png?10873">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/MBE_LOGO.png?10873">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/2018_WBENC_logo_text_gray.png?10873">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="http://novel-mg.com/assets/cert_logo.png">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://www.kriaanet.com/wp-content/uploads/2019/02/300ppi-feat-logo_feat_logo-EDWOSB.png">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				            </div>
-				            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+				            <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
 				                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				                <span class="sr-only">Previous</span>
 				            </a>
-				            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+				            <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
 				                <span class="carousel-control-next-icon" aria-hidden="true"></span>
 				                <span class="sr-only">Next</span>
 				            </a>
 				        </div>
 				    </div>
 				</div>
-				<div class="container">
-				    <h2>University</h2>
+				<div class="channel">
+				    <h2>Interships</h2>
 				    <div class="row mx-auto my-auto">
-				        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+				        <div id="carousel2" class="carousel slide w-100" data-ride="carousel">
 				            <div class="carousel-inner w-100" role="listbox">
 				                <div class="carousel-item active">
-				                    <img width="900" height="1200" class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/NMSDC.png?10873">
+				                    <div class="Notice d-block">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/DBE-ACDBE-logo.png?10873">
+				                    <div class="Notice d-block">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/MBE_LOGO.png?10873">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/2018_WBENC_logo_text_gray.png?10873">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="http://novel-mg.com/assets/cert_logo.png">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://www.kriaanet.com/wp-content/uploads/2019/02/300ppi-feat-logo_feat_logo-EDWOSB.png">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				            </div>
-				            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+				            <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
 				                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				                <span class="sr-only">Previous</span>
 				            </a>
-				            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+				            <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
 				                <span class="carousel-control-next-icon" aria-hidden="true"></span>
 				                <span class="sr-only">Next</span>
 				            </a>
 				        </div>
 				    </div>
 				</div>
-				<div class="container">
-				    <h2>Deparment Of Computer Science</h2>
+				<div class="channel">
+				    <h2>Buy/Sell</h2>
 				    <div class="row mx-auto my-auto">
-				        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+				        <div id="carousel3" class="carousel slide w-100" data-ride="carousel">
 				            <div class="carousel-inner w-100" role="listbox">
 				                <div class="carousel-item active">
-				                    <img width="900" height="1200" class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/NMSDC.png?10873">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/DBE-ACDBE-logo.png?10873">
+				                   <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/MBE_LOGO.png?10873">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://cdn.shopify.com/s/files/1/2304/9095/files/2018_WBENC_logo_text_gray.png?10873">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="http://novel-mg.com/assets/cert_logo.png">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				                <div class="carousel-item">
-				                    <img class="d-block col-3 img-fluid" src="https://www.kriaanet.com/wp-content/uploads/2019/02/300ppi-feat-logo_feat_logo-EDWOSB.png">
+				                    <div class="Notice">
+				                		<div class="NoticeHeader">
+				                		<h2>Covid-19 Mask Requirement</h2>
+				                		</div>
+				                		<div class=NoticeBody>
+				                		<p>Full facemask is required for all campus activity </p>
+				                		<p><strong>Expire Time :</strong>30 Dec 2021</p>
+				                		</div>
+				                	</div>
 				                </div>
 				            </div>
-				            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+				            <a class="carousel-control-prev" href="#carousel3" role="button" data-slide="prev">
 				                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				                <span class="sr-only">Previous</span>
 				            </a>
-				            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+				            <a class="carousel-control-next" href="#carousel3" role="button" data-slide="next">
 				                <span class="carousel-control-next-icon" aria-hidden="true"></span>
 				                <span class="sr-only">Next</span>
 				            </a>
@@ -151,10 +287,13 @@
 				</div>
               </div>
               <div class="col-sm-3">
-              	<div class="shortnotice">
+               <div>
+                <h2>Short Notices</h2>
+                <div class="shortnotice">
               		<p>car raid available from Manning</p>
               		<p>Expaired by: 1:00 PM</p>
-              	</div>	
+              	</div>
+               </div>
               </div>  
 			</div>
         </section>
