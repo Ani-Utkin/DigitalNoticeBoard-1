@@ -33,7 +33,8 @@
                 </div>
             </spring:bind>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-            <h4 class="text-center"><a href="${contextPath}/signup">SignUp</a></h4>
+            <h4 class="text-center"><a href="${contextPath}/signup">Sign Up</a></h4>
+            <h4 class="text-center"><a href="${contextPath}/changePassword">Reset Password</a></h4>
         </form:form>
 
     </div>
