@@ -80,4 +80,14 @@ public class UserController {
     public String customer(@ModelAttribute("userForm") User userForm, BindingResult bindingResult,Model model) {
         return "signin";
     }
+    
+    @GetMapping("/mynoticetab")
+    public String mynoticetab(@ModelAttribute("userForm") User userForm, BindingResult bindingResult,Model model) {
+        return "mynoticetab";
+    }
+    
+    @GetMapping("/postShortnotice")
+    public String postShortnotice(@ModelAttribute("userForm") User userForm, BindingResult bindingResult,Model model) {
+        return "postShortnotice";
+    }
 }
