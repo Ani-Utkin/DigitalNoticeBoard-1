@@ -35,6 +35,7 @@
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 		<a class="dropdown-item" href="#">My notices board</a>
 		<a class="dropdown-item" href="#">Profile setting</a>
+		<a class="dropdown-item" href="${contextPath}/addNotice">Add Notice</a>
 	  </div>
 	</div>
   </div>
