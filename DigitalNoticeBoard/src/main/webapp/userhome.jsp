@@ -29,11 +29,11 @@
       </li>
     </ul>
     <div class="dropdown">
-	  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	  <a class="btn btn-secondary dropdown-toggle" href="1" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		My profile
 	  </a>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-		<a class="dropdown-item" href="#">My notices board</a>
+		<a class="dropdown-item" href="${contextPath}/mynoticetab">My notices tab</a>
 		<a class="dropdown-item" href="#">Profile setting</a>
 		<a class="dropdown-item" href="${contextPath}/addNotice">Add Notice</a>
 	  </div>
