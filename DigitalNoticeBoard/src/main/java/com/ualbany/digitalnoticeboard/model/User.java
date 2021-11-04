@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -21,6 +22,9 @@ public class User extends Persistable {
 	private String password;
     private VerificationToken verificationToken;
     private Boolean isActive;
+    
+    List<Group> membergroups = new ArrayList<Group>();
+	List<Group> admingroups = new ArrayList<Group>();
 	
     @Transient//this field will not be saved in the database.
     private String passwordConfirm;
@@ -98,5 +102,23 @@ public class User extends Persistable {
 
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
+	}
+	
+	@ManyToMany(mappedBy = "members")
+    public List<Group> getMembergroups() {
+		return membergroups;
+	}
+
+	public void setMembergroups(List<Group> membergroups) {
+		this.membergroups = membergroups;
+	}
+
+	@ManyToMany(mappedBy = "admins")
+	public List<Group> getAdmingroups() {
+		return admingroups;
+	}
+
+	public void setAdmingroups(List<Group> admingroups) {
+		this.admingroups = admingroups;
 	}
 }
