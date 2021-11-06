@@ -11,6 +11,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
@@ -84,6 +85,17 @@
 		</div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.notice-slider').slick({
+    	  infinite: true,
+    	  slidesToShow: 3,
+    	  slidesToScroll: 3
+      });
+    });
+  	</script>
 </body>
 </html>

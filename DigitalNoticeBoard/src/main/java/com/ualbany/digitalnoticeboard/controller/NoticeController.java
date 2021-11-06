@@ -19,7 +19,6 @@ import com.ualbany.digitalnoticeboard.model.Notice;
 import com.ualbany.digitalnoticeboard.model.Persistable;
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
 import com.ualbany.digitalnoticeboard.model.User;
-import com.ualbany.digitalnoticeboard.model.Visibility;
 import com.ualbany.digitalnoticeboard.service.ChannelService;
 import com.ualbany.digitalnoticeboard.service.NoticeService;
 import com.ualbany.digitalnoticeboard.service.ShortNoticeService;

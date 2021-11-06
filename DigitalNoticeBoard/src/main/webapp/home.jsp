@@ -86,6 +86,6 @@
     	  slidesToScroll: 3
       });
     });
-  </script>
+  	</script>
 </body>
 </html>
