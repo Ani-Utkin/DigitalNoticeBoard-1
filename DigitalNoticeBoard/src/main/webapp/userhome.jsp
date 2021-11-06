@@ -78,8 +78,7 @@
                <c:forEach var="shnote" items="${ShortNotices}"> 
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
-            		<fmt:parseDate pattern="HH:mm:ss" value="${shnote.expirationDate}" var="expirationDate" />
-            		<p>Expired by: <fmt:formatDate value="${expirationDate}" pattern="HH:mm:ss" /></p>
+            		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="both" pattern="yyyy-MM-dd" /></p>
             	   </div>
                </c:forEach>
              </div>
@@ -95,7 +94,7 @@
     $(document).ready(function(){
       $('.notice-slider').slick({
     	  infinite: true,
-    	  slidesToShow: 2,
+    	  slidesToShow: 1,
     	  slidesToScroll: 1,
     	  autoplay: true,
     	  autoplaySpeed: 1000

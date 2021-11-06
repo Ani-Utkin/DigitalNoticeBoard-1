@@ -156,14 +156,6 @@ header {
   }
 }
 
-.shortnotice{
-	background-color: yellow;
-	color: black;
-	border: 2px solid black;
-	-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
 .maincontent {
 	padding: 0;

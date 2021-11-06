@@ -27,7 +27,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Public <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="${contextPath}/${user.username}/userhome">Public <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <div class="dropdown">
@@ -38,7 +38,7 @@
 	    <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/addedNotices">Added Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkedNotices">BookMarked Notices</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>
 	  </div>
 	</div>
@@ -47,24 +47,17 @@
 <body>
 <div class="container">
 
-        <form:form method="POST" action="${contextPath}/${user.username}/notice/addNotice" modelAttribute="noticeForm">
-            <h2 class="channel-title">Add Notice</h2>
-            <spring:bind path="title">
-                <form:input type="text" path="title" class="form-control" placeholder="Title"
+        <form:form method="POST" action="${contextPath}/${user.username}/notice/addShortNotice" modelAttribute="shortNoticeForm">
+            <h2 class="channel-title">Add Short Notice</h2>
+            <spring:bind path="details">
+                <form:input type="text" path="details" class="form-control" placeholder="Details"
                                 autofocus="true"></form:input>
-            </spring:bind>
-			<spring:bind path="summary">
-                <form:input type="text" path="summary" class="form-control" placeholder="Summary"
-                                autofocus="true"></form:input>
-            </spring:bind>
-			 <spring:bind path="details">
-                <form:input type="text" path="details" class="form-control" placeholder="Details"></form:input>
             </spring:bind>
             <spring:bind path="expirationDate">
                 <form:input type="text" path="expirationDate" class="form-control" id = "expDatePicker" placeholder="ExpirationDate"></form:input>
             </spring:bind>
-            <spring:bind path="channels">
-                <form:select multiple="true" path="channels" class="form-control"  items="${channels}" placeholder="channels"/>
+            <spring:bind path="visibility">
+                <form:select path="visibility" class="form-control"  items="${visibilityTypes}" placeholder="Visibility"/>
             </spring:bind>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
         </form:form>

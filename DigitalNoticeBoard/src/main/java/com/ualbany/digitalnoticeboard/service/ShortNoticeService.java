@@ -15,7 +15,7 @@ public class ShortNoticeService {
 	@Autowired
 	private ShortNoticeRepository repository;
 	
-	public void Save(ShortNotice entity) {
+	public void save(ShortNotice entity) {
 		repository.save(entity);
 	}
 	
