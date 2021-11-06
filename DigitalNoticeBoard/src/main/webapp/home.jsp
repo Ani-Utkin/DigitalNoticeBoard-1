@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
@@ -82,8 +83,10 @@
     $(document).ready(function(){
       $('.notice-slider').slick({
     	  infinite: true,
-    	  slidesToShow: 3,
-    	  slidesToScroll: 3
+    	  slidesToShow: 1,
+    	  slidesToScroll: 1,
+    	  autoplay: true,
+    	  autoplaySpeed: 1000
       });
     });
   	</script>

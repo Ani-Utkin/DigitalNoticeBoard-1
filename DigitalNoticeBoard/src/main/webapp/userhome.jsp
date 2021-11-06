@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
@@ -47,6 +48,7 @@
   </div>
 </nav>
 <body>
+	<div class="maincontent">
 	<section id="">
 		<div class="item row align-items-center">
             <div class="col-sm-9">
@@ -84,6 +86,7 @@
             </div>  
 		</div>
     </section>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
@@ -92,8 +95,10 @@
     $(document).ready(function(){
       $('.notice-slider').slick({
     	  infinite: true,
-    	  slidesToShow: 3,
-    	  slidesToScroll: 3
+    	  slidesToShow: 2,
+    	  slidesToScroll: 1,
+    	  autoplay: true,
+    	  autoplaySpeed: 1000
       });
     });
   	</script>
