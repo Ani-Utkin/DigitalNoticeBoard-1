@@ -1,0 +1,43 @@
+.notice{
+	border: 2px solid black;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: white;
+    max-width: 200px;
+    border-radius: 5px;
+    margin: 10px
+}  
+
+.notice-header{
+    background-color: yellow;
+    border-radius: 10px 10px 0px 0px;
+    color: violet
+}
+
+.notice-body{
+	background-color: white;
+	color: #df7644;
+}
+
+.channel{
+	margin-top:10px;
+	margin-bottom:20px;
+	border-top:2px solid black;
+	border-bottom:2px solid black;
+	background-color: #8c8c8c;
+	color: white;
+}
+
+.channel-title{
+	padding-top:5px;
+	margin-bottom:5px;
+	border-top:2px solid black;
+	border-bottom:2px solid black;
+	background-color: #2e2e2e;
+	color: white;
+}
+
+.shortnotice{
+	background-color: yellow;
+}

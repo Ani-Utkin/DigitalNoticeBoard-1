@@ -32,8 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/resources/**", "/signup","/verify-email","/signin",
-                		"/home","/Profile.jsp","/home.jsp","/mynoticetab","/postShortnotice","/index.html","/jquery.min.js","/addnotice.jsp",
-                		"/css/style.css","/css/bootstrap.min.css","/css/common.css").permitAll()
+                		"/home","/Profile.jsp","/home.jsp","/userhome.jsp","/mynoticetab","/postShortnotice","/index.html","/jquery.min.js","/addnotice.jsp",
+                		"/css/style.css","/css/bootstrap.min.css","/css/common.css","/**","/addchannel.jsp").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 

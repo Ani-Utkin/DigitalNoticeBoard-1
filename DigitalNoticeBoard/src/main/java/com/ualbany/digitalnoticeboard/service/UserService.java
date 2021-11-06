@@ -9,4 +9,5 @@ public interface UserService {
 
     User findByUsername(String username);
     List<User> findByEmail(String email);
+    User findById(Long id);
 }

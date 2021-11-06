@@ -1,5 +1,6 @@
 package com.ualbany.digitalnoticeboard.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,18 +17,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ualbany.digitalnoticeboard.model.Channel;
-import com.ualbany.digitalnoticeboard.model.Notice;
 import com.ualbany.digitalnoticeboard.model.Persistable;
+import com.ualbany.digitalnoticeboard.model.Role;
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
 import com.ualbany.digitalnoticeboard.model.User;
+import com.ualbany.digitalnoticeboard.model.UserRoleType;
 import com.ualbany.digitalnoticeboard.model.Visibility;
 import com.ualbany.digitalnoticeboard.service.ChannelService;
-import com.ualbany.digitalnoticeboard.service.NoticeService;
 import com.ualbany.digitalnoticeboard.service.ShortNoticeService;
 import com.ualbany.digitalnoticeboard.service.UserService;
 
 @Controller
-public class NoticeController {
+public class ChannelController {
 
 	@Autowired
 	ChannelService channelService;
@@ -35,26 +37,25 @@ public class NoticeController {
 	private UserService userService;
 	
 	@Autowired
-	NoticeService noticeService;
-	
-	@Autowired
 	ShortNoticeService shortNoticeService;
 	
-	@RequestMapping(value = "/{username}/notice/addNotice", method = RequestMethod.GET)
-    public ModelAndView addNoticeGetRequest(@PathVariable final String username, @ModelAttribute("noticeForm") Notice noticeForm, BindingResult bindingResult, Model model) {
+	@RequestMapping(value = "/{username}/channel/add", method = RequestMethod.GET)
+    public ModelAndView getEmployeeById(@PathVariable final String username, @ModelAttribute("channelForm") Channel channelForm, BindingResult bindingResult,  Model model) {
 		User user = userService.findByUsername(username);
-	    ModelAndView mv = new ModelAndView("addnotice");
-	    List<Channel> publicChannels = channelService.getAllPublicChannels();
+	    ModelAndView mv = new ModelAndView("addchannel");
+	    List<Visibility> visibilityOptions = new ArrayList<Visibility>();
+	    visibilityOptions.add(Visibility.PUBLIC);
+	    visibilityOptions.add(Visibility.PRIVATE);
         mv.addObject("user", user);
-        mv.addObject("channels", publicChannels);
+        mv.addObject("visibilityTypes", visibilityOptions);
         return mv;
     }
 	 
-	@PostMapping("/{username}/notice/addNotice")
-    public ModelAndView addNoticePutRequest(@PathVariable final String username, @ModelAttribute("noticeForm") Notice noticeForm, BindingResult bindingResult, Model model) {
+	@PostMapping("/{username}/channel/add")
+    public ModelAndView profileGet(@PathVariable final String username, @ModelAttribute("channelForm") Channel channelForm, BindingResult bindingResult, Model model) {
 		User user = userService.findByUsername(username);
-		setpersistableproperties(noticeForm, user);
-        noticeService.save(noticeForm);
+		setpersistableproperties(channelForm, user);
+        channelService.save(channelForm);
         
 		ModelAndView mv = new ModelAndView("userhome");
 		mv.addObject("user", user);
