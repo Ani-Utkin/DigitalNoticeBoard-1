@@ -73,13 +73,13 @@
             </div>
    		    </c:forEach>
 	    	</div>
-             <div class="col-sm-3">
+             <div class="col-sm-3 shortnoticeHeight">
               <div class="short-notice-slider">
                <h2>Short Notices</h2>
                <c:forEach var="shnote" items="${ShortNotices}"> 
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
-            		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="both" pattern="yyyy-MM-dd" /></p>
+            		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="both" pattern="MM-dd-yyyy" /></p>
             	   </div>
                </c:forEach>
              </div>

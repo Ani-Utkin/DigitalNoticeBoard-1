@@ -6,7 +6,6 @@
     background-color: white;
     border-radius: 5px;
     margin: 10px
-
 }  
 
 .notice-header{
@@ -61,4 +60,35 @@
     display: flex !important;
 }
 
+.shortnoticeHeight{
+	height: 2064px;
+}
+
+.form-control-shortnotice {
+    display: block;
+    width: 100%;
+    height: calc(1.5
+em
+ + 0.75
+rem
+ + 2
+px
+);
+    padding: 2.375
+rem
+ 0.75
+rem
+;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 66.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 9
+px
+ solid #ced4da;
+    border-radius: 0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 
