@@ -24,4 +24,12 @@ public class ProfileService {
     	else
     		return null;
     }
+    
+    public Profile findByUserId(Long id) {
+    	Optional<Profile> profile= repository.findByUserId(id);
+    	if(profile.isPresent())
+    		return profile.get();
+    	else
+    		return null;
+    }
 }

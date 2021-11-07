@@ -7,9 +7,9 @@ public class Profile  extends Persistable {
  
 	private User user;
 	
-    private String firstname;
+    private String firstName;
 
-    private String lastname;
+    private String lastName;
 
     private String phone;
 
@@ -30,19 +30,19 @@ public class Profile  extends Persistable {
     }
     
     public String getFirstName(){
-        return firstname;
+        return firstName;
     }
 
     public void setFirstName(String firstname){
-        this.firstname = firstname;
+        this.firstName = firstname;
     }
 
     public String getLastName(){
-        return lastname;
+        return lastName;
     }
 
     public void setLastName(String lastname){
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
     public String getPhone(){

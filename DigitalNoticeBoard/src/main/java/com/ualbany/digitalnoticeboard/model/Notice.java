@@ -18,6 +18,7 @@ public class Notice extends Persistable {
 	private Date expirationDate;
 	
 	private List<Channel> channels = new ArrayList<Channel>();
+	private List<User> bookmarkusers = new ArrayList<User>();
 	
 	public String getTitle() {
 		return title;
@@ -60,5 +61,16 @@ public class Notice extends Persistable {
 	
 	public void setChannels(List<Channel> channels){
 		this.channels = channels;
+	}
+
+	@ManyToMany
+    @JoinTable(name = "Bookmark_Users",joinColumns= @JoinColumn(name="noticeId", referencedColumnName="id"),
+    	    inverseJoinColumns= @JoinColumn(name="userId", referencedColumnName="id"))
+	public List<User> getBookmarkusers() {
+		return bookmarkusers;
+	}
+
+	public void setBookmarkusers(List<User> bookmarkusers) {
+		this.bookmarkusers = bookmarkusers;
 	}
 }

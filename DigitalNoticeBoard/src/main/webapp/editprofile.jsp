@@ -48,20 +48,32 @@
   </div>
 </nav>
 <body>
-	<div class="maincontent">
+    <div class="maincontent">
 	<section id="">
-		<div class="item row align-items-center">
-		    <div class="col-sm-9">
-	            <p>First Name: ${profile.firstName}</p>
-	            <p>Last Name: ${profile.lastName}</p>
-	            <p>Address : ${profile.address1},<br>${profile.address2}</p>
-	            <p>Phone : ${profile.phone}</p>
-	            <img src="${profile.image}"></img>
-	    	</div>
-             <div class="col-sm-3">
-             	<a href="${contextPath}/${user.username}/profile/edit">Edit Profile</a>
-            </div>  
-		</div>
+		<form:form method="POST" action="${contextPath}/${user.username}/profile/edit" modelAttribute="profileForm">
+            <h2 class="channel-title">Edit profile</h2>
+            <spring:bind path="firstName">
+                <form:input type="text" path="firstName" class="form-control" placeholder="${profile.firstName}"
+                                autofocus="true"></form:input>
+            </spring:bind>
+			<spring:bind path="lastName">
+                <form:input type="text" path="lastName" class="form-control" placeholder="${profile.lastName}"
+                                autofocus="true"></form:input>
+            </spring:bind>
+			 <spring:bind path="address1">
+                <form:input type="text" path="address1" class="form-control" placeholder="${profile.address1}"></form:input>
+            </spring:bind>
+            <spring:bind path="address2">
+                <form:input type="text" path="address2" class="form-control" placeholder="${profile.address2}"></form:input>
+            </spring:bind>
+             <spring:bind path="phone">
+                <form:input type="text" path="phone" class="form-control" placeholder= "${profile.phone}"></form:input>
+            </spring:bind>
+            <spring:bind path="image">
+                <form:select multiple="true" path="image" class="form-control" placeholder="${profile.image}"/>
+            </spring:bind>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+        	</form:form>
     </section>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

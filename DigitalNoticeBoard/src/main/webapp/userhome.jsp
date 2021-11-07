@@ -66,6 +66,7 @@
           	      <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
           	      <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
                  </div>
+                 <button class=bookmarkbutton onclick=onBookMarkNotice(${user.username}, ${note.id}) style="witdth:15px; height:10px">BM</button>
           	    </div>
           	    </c:forEach>
           	   </div>
@@ -90,6 +91,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+     <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
       $('.notice-slider').slick({
@@ -102,6 +104,8 @@
     	  variableHeight: true
       });
     });
+  	</script>
+  	<script type="text/javascript" src="${contextPath}/resources/js/eventshandlers.js">
   	</script>
 </body>
 </html>
