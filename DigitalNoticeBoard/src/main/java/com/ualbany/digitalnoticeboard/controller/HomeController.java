@@ -38,7 +38,7 @@ public class HomeController {
         return mv;
     }
 	
-	@GetMapping(value = "/{username}/home")
+	@GetMapping(value = "/{username}/userhome")
     public ModelAndView userHomeGet(@PathVariable final String username, Model model) {
 		User user = userService.findByUsername(username);
 		ModelAndView mv = new ModelAndView("userhome");

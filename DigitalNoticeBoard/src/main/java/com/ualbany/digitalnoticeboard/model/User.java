@@ -25,8 +25,9 @@ public class User extends Persistable {
     
     List<Group> membergroups = new ArrayList<Group>();
 	List<Group> admingroups = new ArrayList<Group>();
+	List<Notice> bookmarkednotices = new ArrayList<Notice>();
 	
-    @Transient//this field will not be saved in the database.
+	@Transient//this field will not be saved in the database.
     private String passwordConfirm;
 
     private List<Role> roles = new ArrayList<Role>();
@@ -120,5 +121,14 @@ public class User extends Persistable {
 
 	public void setAdmingroups(List<Group> admingroups) {
 		this.admingroups = admingroups;
+	}
+	
+	@ManyToMany(mappedBy = "bookmarkusers")
+    public List<Notice> getBookmarkednotices() {
+		return bookmarkednotices;
+	}
+
+	public void setBookmarkednotices(List<Notice> bookmarkednotices) {
+		this.bookmarkednotices = bookmarkednotices;
 	}
 }

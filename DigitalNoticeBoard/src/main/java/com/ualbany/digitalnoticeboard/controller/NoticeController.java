@@ -93,6 +93,7 @@ public class NoticeController {
     }
 	
 	
+	
 	void setpersistableproperties(Persistable ps, User user) {
 		Date now = new Date();
 		ps.setCreatedAt(now);
