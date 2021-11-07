@@ -1,10 +1,24 @@
-onBookMarkNotice = function(noticeId, username){
-	   request = {};
+function onBookMarkNotice(username, noticeId){
+	   let request = {};
 	   request["noticeId"] = noticeId;
 	   request["username"] = username;
-	   axios.post('${contextPath}/api/bookmarkNotice', request)
-	    .then(response => console.write(response.status)
-	    .catch(error => {
-	        console.error('There was an error!', error);
-	    });
-	};
+	  $.ajax({
+			type : "POST",
+			contentType : "application/json",
+			url : window.origin + "/api/bookmarkNotice",
+			data : JSON.stringify(request),
+  			dataType : 'json',
+			success : function(result) {
+				if(result.status == "Done"){
+					console.log("Saved:result.data");
+				}else{
+					alert("Error!");
+				}
+				console.log(result);
+			},
+			error : function(e) {
+				alert("Error!")
+				console.log("ERROR: ", e);
+			}
+		});	
+	}

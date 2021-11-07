@@ -1,7 +1,9 @@
 package com.ualbany.digitalnoticeboard.controller;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,14 @@ public class RestWebController {
 	@PostMapping("/bookmarkNotice")
     public Response bookmarkNoticePutRequest(@RequestBody String request) {
 		JSONObject bookmarkrequest = new JSONObject(request.toString());
+		Response response = new Response("Done", bookmarkrequest);
+		
 		User user = userService.findByUsername(bookmarkrequest.getString("username"));
 		Notice notice = noticeService.findById(bookmarkrequest.getLong("noticeId"));
+		Set<Notice> noticeSet = new HashSet<Notice>(user.getBookmarkednotices());
+		if(noticeSet.contains(notice))
+			return response;
+		
 		List<User> bookmarkedusers= notice.getBookmarkusers();
 		bookmarkedusers.add(user);
 		notice.setBookmarkusers(bookmarkedusers);
@@ -44,9 +52,9 @@ public class RestWebController {
 		
 		userService.save(user);
 		noticeService.save(notice);
-        
 		// Create Response Object
-		Response response = new Response("Done", bookmarkrequest);
+		
+		
 		return response;
     }
 	

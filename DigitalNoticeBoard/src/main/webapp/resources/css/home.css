@@ -57,8 +57,7 @@
     height: inherit !important;
 }
 
-.slick-track
-{
+.slick-track{
     display: flex !important;
 }
 

@@ -10,7 +10,7 @@ body {
     padding: 15px;
     margin: 0 auto;
 
-}
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
     margin-bottom: 10px;
@@ -98,6 +98,7 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 header {
     background-color: #b2c5fa;
     padding: 20px;
@@ -133,6 +134,7 @@ header {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
 .positionRight {
   position: absolute;
   top: 80%;
@@ -145,10 +147,12 @@ header {
   width: 150px;
   border-radius: 50%;
 }
+
 .positionRight img {
   width: 150px;
   border-radius: 50%;
 }
+
 @media (max-width: 600px) {
   nav, article {
     width: 100%;
@@ -177,7 +181,7 @@ header {
     padding: 4px;
     background-color: #333;
     border-radius: 5px;
-  }
+}
   
 
 

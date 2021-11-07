@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 public class Notice extends Persistable {
@@ -54,7 +55,8 @@ public class Notice extends Persistable {
 	
 	@ManyToMany
     @JoinTable(name = "Notice_Channel",joinColumns= @JoinColumn(name="noticeId", referencedColumnName="id"),
-    	    inverseJoinColumns= @JoinColumn(name="channelId", referencedColumnName="id"))
+    	    inverseJoinColumns= @JoinColumn(name="channelId", referencedColumnName="id"),
+    	    uniqueConstraints = @UniqueConstraint(columnNames = {"noticeId", "channelId" }))
 	public List<Channel> getChannels(){
 		return this.channels;
 	}
@@ -65,7 +67,8 @@ public class Notice extends Persistable {
 
 	@ManyToMany
     @JoinTable(name = "Bookmark_Users",joinColumns= @JoinColumn(name="noticeId", referencedColumnName="id"),
-    	    inverseJoinColumns= @JoinColumn(name="userId", referencedColumnName="id"))
+    	    inverseJoinColumns= @JoinColumn(name="userId", referencedColumnName="id"),
+    	    uniqueConstraints = @UniqueConstraint(columnNames = {"noticeId", "userId" }))
 	public List<User> getBookmarkusers() {
 		return bookmarkusers;
 	}

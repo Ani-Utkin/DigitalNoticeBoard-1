@@ -73,11 +73,11 @@ public class ProfileController {
 		profile.setImage(profileForm.getImage());
 		Date now = new Date();
 		profile.setUpdatedAt(now);
-		profileService.save(profileForm);
+		profileService.save(profile);
         
 		ModelAndView mv = new ModelAndView("profile");
 		mv.addObject("user", user);
-        mv.addObject("profile", profileForm);
+        mv.addObject("profile", profile);
         return mv;
     }
 	

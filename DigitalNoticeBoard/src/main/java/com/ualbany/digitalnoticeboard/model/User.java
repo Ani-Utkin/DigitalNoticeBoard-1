@@ -22,6 +22,7 @@ public class User extends Persistable {
 	private String password;
     private VerificationToken verificationToken;
     private Boolean isActive;
+    private Profile profile;
     
     List<Group> membergroups = new ArrayList<Group>();
 	List<Group> admingroups = new ArrayList<Group>();
@@ -130,5 +131,14 @@ public class User extends Persistable {
 
 	public void setBookmarkednotices(List<Notice> bookmarkednotices) {
 		this.bookmarkednotices = bookmarkednotices;
+	}
+
+	@OneToOne(mappedBy ="user")
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
 	}
 }
