@@ -54,7 +54,7 @@
             <div class="col-sm-9">
             <c:forEach var="chnl" items="${Channels}">
           	<div class="channel">
-          	 <h2>${chnl.title}</h2>
+          	 <h2 class="channel-title">${chnl.title}</h2>
           	  <div class="notice-slider">
           	   <c:forEach var="note" items="${chnl.notices}">
           	    <div class="notice">
@@ -94,10 +94,12 @@
     $(document).ready(function(){
       $('.notice-slider').slick({
     	  infinite: true,
-    	  slidesToShow: 1,
+    	  slidesToShow: 2,
     	  slidesToScroll: 1,
     	  autoplay: true,
-    	  autoplaySpeed: 1000
+    	  autoplaySpeed: 3000,
+    	  variableWidth: true,
+    	  variableHeight: true
       });
     });
   	</script>

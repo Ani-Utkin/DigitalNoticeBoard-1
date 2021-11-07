@@ -82,10 +82,13 @@
     $(document).ready(function(){
       $('.notice-slider').slick({
     	  infinite: true,
-    	  slidesToShow: 1,
+    	  slidesToShow: 2,
     	  slidesToScroll: 1,
     	  autoplay: true,
-    	  autoplaySpeed: 1000
+    	  autoplaySpeed: 3000,
+    	  variableWidth: true,
+    	  variableHeight: true
+    	  
       });
     });
   	</script>
