@@ -46,6 +46,8 @@ public class HomeController {
         List<Channel> channels = channelService.getAllPublicChannels();
         mv.addObject("Channels", channels);
         List<ShortNotice> shortnotices = shortNoticeService.getAllPublicNotices();
+        //TODO
+        //Sort shortnotices based on expiration time here 
         mv.addObject("ShortNotices", shortnotices);
         return mv;
     }

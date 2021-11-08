@@ -1,5 +1,8 @@
 package com.ualbany.digitalnoticeboard.validator;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -34,8 +37,12 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
         if (!userService.findByEmail(user.getEmail()).isEmpty()) {
             errors.rejectValue("email", "Duplicate.userForm.email");
+        }     
+        
+        if (!user.getEmail().endsWith("@albany.edu")) {
+        	errors.rejectValue("email", "NotvalidEmail.userFrom.email");
         }
-      
+         
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
         if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
             errors.rejectValue("password", "Size.userForm.password");
