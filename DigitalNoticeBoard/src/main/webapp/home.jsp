@@ -60,7 +60,7 @@
 	             </div>
        		    </c:forEach>
 			    </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 shortnoticeHeight" >
                 <div class="short-notice-slider">
                  <h2>Short Notices</h2>
                  <c:forEach var="shnote" items="${ShortNotices}"> 
@@ -82,13 +82,13 @@
     $(document).ready(function(){
       $('.notice-slider').slick({
     	  infinite: true,
-    	  slidesToShow: 2,
+    	  slidesToShow: 4,
     	  slidesToScroll: 1,
     	  autoplay: true,
     	  autoplaySpeed: 3000,
     	  variableWidth: true,
     	  variableHeight: true
-    	  
+    	 
       });
     });
   	</script>
