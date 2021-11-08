@@ -11,7 +11,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
@@ -53,8 +53,8 @@
                 <form:input type="text" path="details" class="form-control" placeholder="Details"
                                 autofocus="true"></form:input>
             </spring:bind>
-            <spring:bind path="expirationDate">
-                <form:input type="text" path="expirationDate" class="form-control" id = "expDatePicker" placeholder="ExpirationDate"></form:input>
+            <spring:bind path="expirationTime">
+                <form:input type="time" path="expirationTime" class="form-control" id = "expDatePicker" placeholder="ExpirationTime"></form:input>
             </spring:bind>
             <spring:bind path="visibility">
                 <form:select path="visibility" class="form-control"  items="${visibilityTypes}" placeholder="Visibility"/>
@@ -64,10 +64,17 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
     <script>
          $(function () {
-             $("#expDatePicker").datepicker();
+             $("#expDatePicker").timepicker({
+            	    timeFormat: 'h:mm p',
+            	    interval: 60,
+            	    maxTime: '11:59pm',
+            	    defaultTime: '11',
+            	    startTime: '00:01',
+            	    dynamic: false,
+            	    scrollbar: true});
          });
      </script>
 </body>

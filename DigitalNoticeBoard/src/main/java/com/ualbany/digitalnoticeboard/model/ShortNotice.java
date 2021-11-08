@@ -9,6 +9,7 @@ public class ShortNotice extends Persistable{
 	
 	private String details;
 	private Date expirationDate;
+	private String expirationTime;
 	private Visibility visibility;
 	
 	public String getDetails() {
@@ -34,6 +35,12 @@ public class ShortNotice extends Persistable{
 	 */
 	public void setVisibility(Visibility visibility) {
 		this.visibility = visibility;
+	}
+	public String getExpirationTime() {
+		return expirationTime;
+	}
+	public void setExpirationTime(String expirationTime) {
+		this.expirationTime = expirationTime;
 	}	
 
 }
