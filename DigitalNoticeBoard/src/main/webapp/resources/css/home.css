@@ -9,10 +9,10 @@
 }  
 
 .notice-header{
-    background-color: yellow;
+    background-color: pink;
     border-radius: 5px 5px 0px 0px;
     padding: 5px;
-    color: violet
+    color: black;
 }
 
 .notice-body{
@@ -43,7 +43,7 @@
 }
 
 .shortnotice{
-	background-color: yellow;
+	background-color: #F5F5DC;
 	color: black;
 	border: 2px solid black;
 	-webkit-box-sizing: border-box;
