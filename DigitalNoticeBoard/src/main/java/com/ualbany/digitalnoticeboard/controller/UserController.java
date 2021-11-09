@@ -22,7 +22,8 @@ import com.ualbany.digitalnoticeboard.service.ChannelService;
 import com.ualbany.digitalnoticeboard.service.ShortNoticeService;
 import com.ualbany.digitalnoticeboard.service.UserService;
 import com.ualbany.digitalnoticeboard.service.VerificationTokenService;
-import com.ualbany.digitalnoticeboard.validator.UserValidator;
+import com.ualbany.digitalnoticeboard.validator.SignInValidator;
+import com.ualbany.digitalnoticeboard.validator.SignUpValidator;
 
 @Controller
 public class UserController {
@@ -33,7 +34,10 @@ public class UserController {
     VerificationTokenService verificationTokenService;
 
     @Autowired
-    private UserValidator userValidator;
+    private SignUpValidator signupValidator;
+    
+    @Autowired
+    private SignInValidator signinValidator;
     
     @Autowired
 	ChannelService channelService;
@@ -50,7 +54,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult,Model model) {
-        userValidator.validate(userForm, bindingResult);
+        signupValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "signup";
@@ -80,6 +84,10 @@ public class UserController {
     
     @PostMapping("/signin")
     public ModelAndView postSignIn(@ModelAttribute("userForm") User userForm, BindingResult bindingResult,Model model) {
+    	signinValidator.validate(userForm, bindingResult);
+    	if (bindingResult.hasErrors()) {
+            return new ModelAndView("signin");
+        }
     	ModelAndView mv = new ModelAndView("userhome");
     	mv.addObject("user", userForm);
     	List<Channel> channels = channelService.getAllPublicChannels();
@@ -92,6 +100,40 @@ public class UserController {
     @GetMapping("/signin")
     public String getSignIn(@ModelAttribute("userForm") User userForm, BindingResult bindingResult,Model model) {
         return "signin";
+    }
+    
+    @GetMapping("/signout")
+    public ModelAndView getSignOut() {
+    	 ModelAndView mv = new ModelAndView("home");
+         List<Channel> channels = channelService.getAllPublicChannels();
+         mv.addObject("Channels", channels);
+         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
+         mv.addObject("ShortNotices", shortnotices);
+         
+         return mv;
+    }
+    
+    @GetMapping("/resetPassword")
+    public String getResetPassword(@ModelAttribute("userForm") User userForm, BindingResult bindingResult,Model model) {
+        return "signin";
+    }
+    
+    @PostMapping("/resetPassword")
+    public ModelAndView putResetPassword(@ModelAttribute("userForm") User userForm, BindingResult bindingResult,Model model) {
+    	signinValidator.validate(userForm, bindingResult);
+    	if (bindingResult.hasErrors()) {
+            return new ModelAndView("signin");
+        }
+    	User usr = userService.findByUsername(userForm.getUsername());
+    	usr.setPassword(userForm.getPasswordConfirm());
+    	ModelAndView mv = new ModelAndView("userhome");
+    	mv.addObject("user", userForm);
+    	List<Channel> channels = channelService.getAllPublicChannels();
+    	mv.addObject("Channels", channels);
+    	List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
+    	mv.addObject("ShortNotices", shortnotices);
+    	
+    	return mv;
     }
     
     @GetMapping("/mynoticetab")

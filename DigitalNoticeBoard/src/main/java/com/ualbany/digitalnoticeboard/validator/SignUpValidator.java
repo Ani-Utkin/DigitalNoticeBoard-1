@@ -1,8 +1,5 @@
 package com.ualbany.digitalnoticeboard.validator;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -13,7 +10,7 @@ import com.ualbany.digitalnoticeboard.model.User;
 import com.ualbany.digitalnoticeboard.service.UserService;
 
 @Component
-public class UserValidator implements Validator {
+public class SignUpValidator implements Validator {
     @Autowired
     private UserService userService;
 
@@ -30,6 +27,7 @@ public class UserValidator implements Validator {
         if (user.getUsername().length() < 6 || user.getUsername().length() > 32) {
             errors.rejectValue("username", "Size.userForm.username");
         }
+        
         if (userService.findByUsername(user.getUsername()) != null) {
             errors.rejectValue("username", "Duplicate.userForm.username");
         }

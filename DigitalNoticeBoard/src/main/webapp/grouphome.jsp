@@ -31,11 +31,6 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Public <span class="sr-only">(current)</span></a>
       </li>
-      <c:forEach var="grp" items="${groups}">
-      <li class="nav-item">
-        <a class="nav-link" href="${contextPath}/${user.username}/group/${grp.id}">${grp.title}</a>
-      </li>
-      </c:forEach>
     </ul>
     <div class="dropdown">
 	  <a class="btn btn-secondary dropdown-toggle" href="1" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,11 +40,8 @@
 	    <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkednotices">BookMarked Notices</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/newGroup">New Group</a>
-		<a class="dropdown-item" href="${contextPath}/signout">SignOut</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/${group.id}/addNotice">Add Notice</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/${group.id}/addShortNotice">Add Short Notice</a>
 	  </div>
 	</div>
   </div>
