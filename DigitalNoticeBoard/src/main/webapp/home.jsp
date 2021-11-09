@@ -38,7 +38,7 @@
 <body>
     <div class="maincontent">
 	    <section id="">
-			<div class="item row align-items-center">
+			<div class="item row">
               <div class="col-sm-9">
               <c:forEach var="chnl" items="${Channels}">
 	           	<div class="channel">

@@ -80,3 +80,6 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.short-notice-slider{
+	background-color:#8c8c8c;
+}
