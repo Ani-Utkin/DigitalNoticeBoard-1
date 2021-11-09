@@ -55,6 +55,7 @@
             <c:forEach var="chnl" items="${Channels}">
           	<div class="channel">
           	 <h2 class="channel-title">${chnl.title}</h2>
+          	 <div class="channel-body">
           	  <div class="notice-slider">
           	   <c:forEach var="note" items="${chnl.notices}">
           	    <div class="notice">
@@ -70,6 +71,7 @@
           	    </div>
           	    </c:forEach>
           	   </div>
+             </div>
             </div>
    		    </c:forEach>
 	    	</div>
