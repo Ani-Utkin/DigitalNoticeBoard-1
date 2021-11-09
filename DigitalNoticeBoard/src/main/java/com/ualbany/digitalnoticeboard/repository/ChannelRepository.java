@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.ualbany.digitalnoticeboard.model.Channel;
-import com.ualbany.digitalnoticeboard.model.Visibility;
+import com.ualbany.digitalnoticeboard.model.Status;
 
 public interface ChannelRepository extends JpaRepository<Channel, Long> {
-	public List<Channel> findByVisibility(Visibility visibility);
+	public List<Channel> findByStatus(Status status);
 	
 }

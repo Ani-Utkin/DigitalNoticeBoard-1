@@ -18,7 +18,7 @@ import com.ualbany.digitalnoticeboard.service.ShortNoticeService;
 import com.ualbany.digitalnoticeboard.service.UserService;
 
 @Controller
-public class HomeController {
+public class HomeController extends BaseController{
 
 	@Autowired
 	ChannelService channelService;
@@ -34,7 +34,7 @@ public class HomeController {
         ModelAndView mv = new ModelAndView("home");
         List<Channel> channels = channelService.getAllPublicChannels();
         mv.addObject("Channels", channels);
-        List<ShortNotice> shortnotices = shortNoticeService.getAllPublicNotices();
+        List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         mv.addObject("ShortNotices", shortnotices);
         return mv;
     }
@@ -46,7 +46,7 @@ public class HomeController {
 		mv.addObject("user", user);
         List<Channel> channels = channelService.getAllPublicChannels();
         mv.addObject("Channels", channels);
-        List<ShortNotice> shortnotices = shortNoticeService.getAllPublicNotices();
+        List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
         mv.addObject("ShortNotices", shortnotices);
         return mv;

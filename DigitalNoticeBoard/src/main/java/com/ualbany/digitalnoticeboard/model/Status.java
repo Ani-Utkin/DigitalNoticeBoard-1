@@ -1,12 +1,12 @@
 package com.ualbany.digitalnoticeboard.model;
 
-public enum Visibility {
-	PUBLIC("public"),
-	PRIVATE("private");
+public enum Status {
+	ACTIVE("active"),
+	DELETED("deleted");
 	
 	private final String name;       
 
-    private Visibility(String s) {
+    private Status(String s) {
         name = s;
     }
 

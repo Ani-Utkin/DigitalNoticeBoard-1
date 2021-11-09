@@ -1,12 +1,13 @@
 package com.ualbany.digitalnoticeboard.model;
 
-public enum UserRoleType {
-	USER("user"),
-	ADMIN("admin");
+public enum GroupMemberRole {
+	MEMBER("member"),
+	ADMIN("Admin"),
+	AUTHOR("Author");
 	
 	private final String name;       
 
-    private UserRoleType(String s) {
+    private GroupMemberRole(String s) {
         name = s;
     }
 

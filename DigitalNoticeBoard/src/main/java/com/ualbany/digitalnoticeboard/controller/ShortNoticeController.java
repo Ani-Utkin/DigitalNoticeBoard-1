@@ -2,7 +2,6 @@ package com.ualbany.digitalnoticeboard.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -21,17 +20,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ualbany.digitalnoticeboard.model.Channel;
-import com.ualbany.digitalnoticeboard.model.Persistable;
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
 import com.ualbany.digitalnoticeboard.model.User;
-import com.ualbany.digitalnoticeboard.model.Visibility;
 import com.ualbany.digitalnoticeboard.service.ChannelService;
 import com.ualbany.digitalnoticeboard.service.NoticeService;
 import com.ualbany.digitalnoticeboard.service.ShortNoticeService;
 import com.ualbany.digitalnoticeboard.service.UserService;
 
 @Controller
-public class ShortNoticeController {
+public class ShortNoticeController extends BaseController {
 
 	@Autowired
 	ChannelService channelService;
@@ -56,11 +53,7 @@ public class ShortNoticeController {
     public ModelAndView addShortNoticeGetRequest(@PathVariable final String username, @ModelAttribute("shortNoticeForm") ShortNotice noticeForm, BindingResult bindingResult, Model model) {
 		User user = userService.findByUsername(username);
 	    ModelAndView mv = new ModelAndView("addshortnotice");
-	    List<Visibility> visibilityOptions = new ArrayList<Visibility>();
-	    visibilityOptions.add(Visibility.PUBLIC);
-	    visibilityOptions.add(Visibility.PRIVATE);
         mv.addObject("user", user);
-        mv.addObject("visibilityTypes", visibilityOptions);
         return mv;
     }
 	 
@@ -93,16 +86,8 @@ public class ShortNoticeController {
 		mv.addObject("user", user);
         List<Channel> channels = channelService.getAllPublicChannels();
         mv.addObject("Channels", channels);
-        List<ShortNotice> shortnotices = shortNoticeService.getAllPublicNotices();
+        List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         mv.addObject("ShortNotices", shortnotices);
         return mv;
     }
-	
-	void setpersistableproperties(Persistable ps, User user) {
-		Date now = new Date();
-		ps.setCreatedAt(now);
-		ps.setUpdatedAt(now);
-		ps.setCreatedBy(user);
-		ps.setUpdatedBy(user);
-	}
 }

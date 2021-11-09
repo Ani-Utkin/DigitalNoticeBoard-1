@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
-import com.ualbany.digitalnoticeboard.model.Visibility;
+import com.ualbany.digitalnoticeboard.model.User;
+import com.ualbany.digitalnoticeboard.model.Status;
 import com.ualbany.digitalnoticeboard.repository.ShortNoticeRepository;
 
 @Service
@@ -19,7 +20,11 @@ public class ShortNoticeService {
 		repository.save(entity);
 	}
 	
-	public List<ShortNotice> getAllPublicNotices(){
-		return repository.findByVisibility(Visibility.PUBLIC);
+	public List<ShortNotice> getAllActiveNotices(){
+		return repository.findByStatus(Status.ACTIVE);
 	}
+	
+	 public List<ShortNotice> getUserCreatedNotices(User user) {
+	    	return repository.findByCreatedBy(user);
+	    }
 }

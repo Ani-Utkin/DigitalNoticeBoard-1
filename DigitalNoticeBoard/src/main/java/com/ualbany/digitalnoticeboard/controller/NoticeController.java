@@ -1,6 +1,5 @@
 package com.ualbany.digitalnoticeboard.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ualbany.digitalnoticeboard.model.Channel;
 import com.ualbany.digitalnoticeboard.model.Notice;
-import com.ualbany.digitalnoticeboard.model.Persistable;
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
 import com.ualbany.digitalnoticeboard.model.User;
 import com.ualbany.digitalnoticeboard.service.ChannelService;
@@ -24,7 +22,7 @@ import com.ualbany.digitalnoticeboard.service.ShortNoticeService;
 import com.ualbany.digitalnoticeboard.service.UserService;
 
 @Controller
-public class NoticeController {
+public class NoticeController extends BaseController {
 
 	@Autowired
 	ChannelService channelService;
@@ -58,16 +56,21 @@ public class NoticeController {
 		mv.addObject("user", user);
         List<Channel> channels = channelService.getAllPublicChannels();
         mv.addObject("Channels", channels);
-        List<ShortNotice> shortnotices = shortNoticeService.getAllPublicNotices();
+        List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         mv.addObject("ShortNotices", shortnotices);
         return mv;
     }
 	
-	void setpersistableproperties(Persistable ps, User user) {
-		Date now = new Date();
-		ps.setCreatedAt(now);
-		ps.setUpdatedAt(now);
-		ps.setCreatedBy(user);
-		ps.setUpdatedBy(user);
-	}
+	@GetMapping("/{username}/notice/addedNotices")
+    public ModelAndView addedNoticesGetRequest(@PathVariable final String username, Model model) {
+		User user = userService.findByUsername(username);
+        List<Notice> notices= noticeService.getUserCreatedNotices(user);
+        List<ShortNotice> shortnotices = shortNoticeService.getUserCreatedNotices(user);
+		
+		ModelAndView mv = new ModelAndView("addednotices");
+		mv.addObject("user", user);
+		mv.addObject("notices", notices);      
+        mv.addObject("ShortNotices", shortnotices);
+        return mv;
+    }
 }

@@ -34,7 +34,7 @@
 	  </a>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 	    <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/addedNotices">Added Notice</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notice</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkedNotices">BookMarked Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
@@ -54,10 +54,6 @@
 
 			 <spring:bind path="description">
                 <form:input type="text" path="description" class="form-control" placeholder="Description"></form:input>
-            </spring:bind>
-            
-            <spring:bind path="visibility">
-                <form:select path="visibility" class="form-control"  items="${visibilityTypes}" placeholder="Visibility"/>
             </spring:bind>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
         </form:form>

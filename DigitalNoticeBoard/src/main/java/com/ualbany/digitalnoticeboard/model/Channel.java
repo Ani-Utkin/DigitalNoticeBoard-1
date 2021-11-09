@@ -11,7 +11,6 @@ public class Channel extends Persistable {
 
 	private String title;
 	private String description;
-	private Visibility visibility;
 	
 	List<Notice> notices = new ArrayList<Notice>();
 	
@@ -38,19 +37,5 @@ public class Channel extends Persistable {
 	
 	public void setNotices(List<Notice> notices) {
 		this.notices = notices;
-	}
-
-	/**
-	 * @return the visibility
-	 */
-	public Visibility getVisibility() {
-		return visibility;
-	}
-
-	/**
-	 * @param visibility the visibility to set
-	 */
-	public void setVisibility(Visibility visibility) {
-		this.visibility = visibility;
 	}
 }

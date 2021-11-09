@@ -3,14 +3,16 @@ package com.ualbany.digitalnoticeboard.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class ShortNotice extends Persistable{
+public class GroupShortNotice extends Persistable {
 	
 	private String details;
 	private Date expirationDate;
 	private String expirationTime;
-	
+	private Group group;
 	public String getDetails() {
 		return details;
 	}
@@ -28,6 +30,14 @@ public class ShortNotice extends Persistable{
 	}
 	public void setExpirationTime(String expirationTime) {
 		this.expirationTime = expirationTime;
-	}	
+	}
+	@ManyToOne
+	@JoinColumn(name="groupId", nullable=false)
+	public Group getGroup() {
+		return group;
+	}
+	public void setGroup(Group group) {
+		this.group = group;
+	}
 
 }

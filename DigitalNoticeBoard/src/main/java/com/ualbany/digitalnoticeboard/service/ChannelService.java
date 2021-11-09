@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ualbany.digitalnoticeboard.model.Channel;
-import com.ualbany.digitalnoticeboard.model.Visibility;
+import com.ualbany.digitalnoticeboard.model.Status;
 import com.ualbany.digitalnoticeboard.repository.ChannelRepository;
 
 @Service
@@ -20,6 +20,6 @@ public class ChannelService {
 	}
 	
 	public List<Channel> getAllPublicChannels(){
-		return repository.findByVisibility(Visibility.PUBLIC);
+		return repository.findByStatus(Status.ACTIVE);
 	}
 }

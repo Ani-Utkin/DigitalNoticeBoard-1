@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
-import javax.persistence.UniqueConstraint;
 
 
 @Entity
@@ -16,9 +13,28 @@ import javax.persistence.UniqueConstraint;
 public class Group extends Persistable {
 	
 	String name;
-	List<User> members = new ArrayList<User>();
-	List<User> admins = new ArrayList<User>();
+	List<GroupMember> members = new ArrayList<GroupMember>();
+	List<GroupNotice> notices = new ArrayList<GroupNotice>();
+	List<GroupShortNotice> shortNotices = new ArrayList<GroupShortNotice>();
 	
+	@OneToMany(mappedBy="group")
+	public List<GroupShortNotice> getShortNotices() {
+		return shortNotices;
+	}
+
+	public void setShortNotices(List<GroupShortNotice> shortNotices) {
+		this.shortNotices = shortNotices;
+	}
+
+	@OneToMany(mappedBy="group")
+	public List<GroupNotice> getNotices() {
+		return notices;
+	}
+
+	public void setNotices(List<GroupNotice> notices) {
+		this.notices = notices;
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -27,27 +43,12 @@ public class Group extends Persistable {
 		this.name = name;
 	}
 	
-	@ManyToMany
-    @JoinTable(name = "Group_Members",joinColumns= @JoinColumn(name="groupId", referencedColumnName="id"),
-    inverseJoinColumns= @JoinColumn(name="memberId", referencedColumnName="id"),
-    uniqueConstraints = @UniqueConstraint(columnNames = {"groupId", "memberId" }))
-	public List<User> getMembers(){
+	@OneToMany(mappedBy="group")
+	public List<GroupMember> getMembers(){
 		return this.members;
 	}
 	
-	public void setMembers(List<User> members){
+	public void setMembers(List<GroupMember> members){
 		this.members = members;
-	}
-	
-	@ManyToMany
-    @JoinTable(name = "Group_Admins",joinColumns= @JoinColumn(name="groupId", referencedColumnName="id"),
-    	    inverseJoinColumns= @JoinColumn(name="adminId", referencedColumnName="id"),
-    	    uniqueConstraints = @UniqueConstraint(columnNames = {"groupId", "adminId" }))
-	public List<User> getAdmins(){
-		return this.admins;
-	}
-	
-	public void setAdmins(List<User> admins) {
-		this.admins = admins;
 	}
 }

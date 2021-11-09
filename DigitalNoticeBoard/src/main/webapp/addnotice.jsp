@@ -36,7 +36,7 @@
 	  </a>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 	    <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/addedNotices">Added Notices</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkedNotices">BookMarked Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>

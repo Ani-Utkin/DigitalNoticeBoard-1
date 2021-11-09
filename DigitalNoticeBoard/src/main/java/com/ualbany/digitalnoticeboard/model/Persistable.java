@@ -19,6 +19,7 @@ public class Persistable {
     private User updatedBy;
     private Date updatedAt;
     private Date createdAt;
+    private Status status;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -68,4 +69,12 @@ public class Persistable {
     public Date getUpdatedAt() {
         return updatedAt;
     }
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 }

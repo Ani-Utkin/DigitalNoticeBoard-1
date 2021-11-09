@@ -24,8 +24,7 @@ public class User extends Persistable {
     private Boolean isActive;
     private Profile profile;
     
-    List<Group> membergroups = new ArrayList<Group>();
-	List<Group> admingroups = new ArrayList<Group>();
+    List<GroupMember> membergroups = new ArrayList<GroupMember>();
 	List<Notice> bookmarkednotices = new ArrayList<Notice>();
 	
 	@Transient//this field will not be saved in the database.
@@ -106,24 +105,15 @@ public class User extends Persistable {
 		this.isActive = isActive;
 	}
 	
-	@ManyToMany(mappedBy = "members")
-    public List<Group> getMembergroups() {
+	@OneToMany(mappedBy = "user")
+    public List<GroupMember> getMembergroups() {
 		return membergroups;
 	}
 
-	public void setMembergroups(List<Group> membergroups) {
+	public void setMembergroups(List<GroupMember> membergroups) {
 		this.membergroups = membergroups;
 	}
 
-	@ManyToMany(mappedBy = "admins")
-	public List<Group> getAdmingroups() {
-		return admingroups;
-	}
-
-	public void setAdmingroups(List<Group> admingroups) {
-		this.admingroups = admingroups;
-	}
-	
 	@ManyToMany(mappedBy = "bookmarkusers")
     public List<Notice> getBookmarkednotices() {
 		return bookmarkednotices;

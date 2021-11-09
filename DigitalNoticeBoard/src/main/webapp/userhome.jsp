@@ -38,7 +38,7 @@
 	  </a>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 	    <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/addednotices">Added Notices</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkednotices">BookMarked Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
@@ -79,7 +79,7 @@
                <c:forEach var="shnote" items="${ShortNotices}"> 
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
-            		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="both" pattern="HH:mm aa" /></p>
+            		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
             	   </div>
                </c:forEach>
              </div>

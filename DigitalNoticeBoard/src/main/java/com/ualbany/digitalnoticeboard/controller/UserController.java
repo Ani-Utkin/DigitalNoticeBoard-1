@@ -84,7 +84,7 @@ public class UserController {
     	mv.addObject("user", userForm);
     	List<Channel> channels = channelService.getAllPublicChannels();
     	mv.addObject("Channels", channels);
-    	List<ShortNotice> shortnotices = shortNoticeService.getAllPublicNotices();
+    	List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
     	mv.addObject("ShortNotices", shortnotices);
         return mv;
     }

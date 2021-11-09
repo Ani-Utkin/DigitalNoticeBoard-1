@@ -1,6 +1,5 @@
 package com.ualbany.digitalnoticeboard.controller;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ualbany.digitalnoticeboard.model.Notice;
-import com.ualbany.digitalnoticeboard.model.Persistable;
 import com.ualbany.digitalnoticeboard.model.Response;
 import com.ualbany.digitalnoticeboard.model.User;
 import com.ualbany.digitalnoticeboard.repository.NoticeRepository;
@@ -21,7 +19,7 @@ import com.ualbany.digitalnoticeboard.service.UserServiceImpl;
 
 @RestController
 @RequestMapping("/api")
-public class RestWebController {
+public class RestWebController extends BaseController {
 
 	@Autowired
 	UserServiceImpl userService; 
@@ -38,7 +36,7 @@ public class RestWebController {
 		Response response = new Response("Done", bookmarkrequest);
 		
 		User user = userService.findByUsername(bookmarkrequest.getString("username"));
-		Notice notice = noticeService.findById(bookmarkrequest.getLong("noticeId"));
+		Notice notice = noticeService.getByNoticeId(bookmarkrequest.getLong("noticeId"));
 		Set<Notice> noticeSet = new HashSet<Notice>(user.getBookmarkednotices());
 		if(noticeSet.contains(notice))
 			return response;
@@ -57,13 +55,4 @@ public class RestWebController {
 		
 		return response;
     }
-	
-	
-	void setpersistableproperties(Persistable ps, User user) {
-		Date now = new Date();
-		ps.setCreatedAt(now);
-		ps.setUpdatedAt(now);
-		ps.setCreatedBy(user);
-		ps.setUpdatedBy(user);
-	}
 }

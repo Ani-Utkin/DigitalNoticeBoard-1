@@ -36,7 +36,7 @@
 	  </a>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 	    <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/addedNotices">Added Notices</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkedNotices">BookMarked Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>
@@ -55,9 +55,6 @@
             </spring:bind>
             <spring:bind path="expirationTime">
                 <form:input type="time" path="expirationTime" class="form-control" id = "expDatePicker" placeholder="ExpirationTime"></form:input>
-            </spring:bind>
-            <spring:bind path="visibility">
-                <form:select path="visibility" class="form-control"  items="${visibilityTypes}" placeholder="Visibility"/>
             </spring:bind>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
         </form:form>

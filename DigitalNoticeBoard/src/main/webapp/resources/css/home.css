@@ -5,7 +5,8 @@
     box-sizing: border-box;
     background-color: white;
     border-radius: 5px;
-    margin: 10px
+    margin: 10px;
+    width: 200px;
 }  
 
 .notice-header{
@@ -52,7 +53,6 @@
 }
 
 .slick-slide {
-    width: 200px;
     height: inherit !important;
 }
 
@@ -67,27 +67,15 @@
 .form-control-shortnotice {
     display: block;
     width: 100%;
-    height: calc(1.5
-em
- + 0.75
-rem
- + 2
-px
-);
-    padding: 2.375
-rem
- 0.75
-rem
-;
+    height: calc(1.5em+ 0.75rem+ 2px);
+    padding: 2.375rem 0.75rem;
     font-size: 2rem;
     font-weight: 400;
     line-height: 66.5;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border: 9
-px
- solid #ced4da;
+    border: 9px solid #ced4da;
     border-radius: 0;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
