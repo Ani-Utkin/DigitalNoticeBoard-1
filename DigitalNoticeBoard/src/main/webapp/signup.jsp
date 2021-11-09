@@ -11,11 +11,12 @@
 
       <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
       <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+      
+      
   </head>
 
-  <body>
-
-    <div class="container">
+  <body background="https://i.pinimg.com/564x/03/1d/75/031d75d9a633a918c30d91b82c255f97.jpg">
+      <div class="container">
 
         <form:form method="POST" action="${contextPath}/signup" modelAttribute="userForm" class="form-signin">
             <h2 class="form-signin-heading">Create your account</h2>
@@ -55,5 +56,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+    
   </body>
 </html>
