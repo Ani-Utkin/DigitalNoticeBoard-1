@@ -19,17 +19,20 @@
 <link href="${contextPath}/resources/css/home.css" rel="stylesheet">
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">
+ <!-- <a class="navbar-brand" href="#">
     <img src="${contextPath}/resources/img/icon.png" width="30" height="30" alt="">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button>-->
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Public <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link"  href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
       </li>
       <c:forEach var="grp" items="${groups}">
       <li class="nav-item">
