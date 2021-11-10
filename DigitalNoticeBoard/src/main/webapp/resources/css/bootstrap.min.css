@@ -1354,8 +1354,9 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #333;
-    background-color: #fff
+    color: #ffffff;
+    background-color: #2f4f4f;
+    
 }
 
 button, input, select, textarea {
@@ -1448,8 +1449,8 @@ hr {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    font-family: inherit;
-    font-weight: 500;
+    font-family: sans-serif;
+    font-weight: 800;
     line-height: 1.1;
     color: inherit
 }
