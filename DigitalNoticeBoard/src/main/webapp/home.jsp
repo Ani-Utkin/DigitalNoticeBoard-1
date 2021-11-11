@@ -55,6 +55,7 @@
 	           	      <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" type="date" /></p>
 	           	      <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" type="both" /></p>
                      </div>
+                     <button onclick="viewNotice('${note.id}')" style="width:60px; height:30px">View</button>
 	           	    </div>
 	           	    </c:forEach>
 	           	   </div>

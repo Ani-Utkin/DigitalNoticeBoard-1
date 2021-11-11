@@ -82,6 +82,9 @@
              </div>
             </div>
    		    </c:forEach>
+			<div class="noticePopUp" style="position: absolute; width:100px; height:100px; left:50%; top:50%; margin-left:-50px; margin-top:-50px;">
+				This is the pop up
+			</div>
 	    	</div>
              <div class="col-sm-3 shortnoticeHeight">
               <div class="short-notice-slider">
