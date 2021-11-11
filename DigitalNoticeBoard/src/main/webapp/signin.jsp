@@ -13,7 +13,7 @@
       <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body background="https://i.pinimg.com/564x/03/1d/75/031d75d9a633a918c30d91b82c255f97.jpg">
 
     <div class="container">
 
