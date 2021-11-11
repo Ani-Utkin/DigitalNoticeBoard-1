@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
+<link href="${contextPath}/resources/css/lightbox.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/home.css" rel="stylesheet">
 </head>
@@ -54,14 +55,19 @@
 	           	      <p class=notice-summary>${note.summary}</p>
 	           	      <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" type="date" /></p>
 	           	      <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" type="both" /></p>
-                     </div>
+                    <button onclick="openLightBox(); 
+                    showNoticeTitle('${note.title}'); 
+                    showNoticeSummary('${note.summary}');
+                    showNoticeCreateDate('${note.createdAt}');
+                    showNoticeExpireDate('${note.expirationDate}');" style="width: 60px; height:30px;">View</button> 
+                  </div>
 	           	    </div>
 	           	    </c:forEach>
 	           	   </div>
 	             </div>
 	           	 </div>
        		    </c:forEach>
-			    </div>
+			        </div>
                 <div class="col-sm-3 shortnoticeHeight" >
                 <div class="short-notice-slider">
                  <h2>Short Notices</h2>
@@ -74,8 +80,24 @@
                </div>
               </div>  
 			</div>
+      <div id="Lightbox" class="modal">
+        <span class="close pointer" onclick="closeLightBox()">&times;</span>
+        <div class="content">
+          <div class="notice">
+            <div class="notice-header">
+             <h3 id="lightbox-notice-title" class="notice-title">${note.title}</h3>
+            </div>
+            <div class=notice-body>
+             <p id="lightbox-notice-summary" class=notice-summary>${note.summary}</p>
+             <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" type="date" /></p>
+             <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" type="both" /></p> 
+            </div>
+          </div>
+        </div>
+      </div>
         </section>
     </div>
+    <script type="text/javascript" src="${contextPath}/resources/js/lightbox.js"></script>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
