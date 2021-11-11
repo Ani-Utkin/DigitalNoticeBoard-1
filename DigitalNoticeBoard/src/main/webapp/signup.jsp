@@ -50,6 +50,7 @@
                 </div>
             </spring:bind>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+            <h3 class="text-center"><a href="${contextPath}/signin">Already Have an Account ? Sign in</a></h3>
         </form:form>
 
     </div>
