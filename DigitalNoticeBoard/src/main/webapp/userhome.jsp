@@ -17,6 +17,7 @@
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/home.css" rel="stylesheet">
+<link href="${contextPath}/resources/css/lightbox.css" rel="stylesheet">
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
  <!-- <a class="navbar-brand" href="#">
@@ -78,16 +79,17 @@
           	      <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
                  </div>
                  <button class=bookmarkbutton onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button>
-				 <button onclick="viewNotice('${note.id}')" style="width:60px; height:30px">View</button>
+				 <button onclick="openLightBox(); 
+                    showNoticeTitle('${note.title}'); 
+                    showNoticeSummary('${note.summary}');
+                    showNoticeCreateDate('${note.createdAt}');
+                    showNoticeExpireDate('${note.expirationDate}');" style="width:60px; height:30px">View</button>
           	    </div>
           	    </c:forEach>
           	   </div>
              </div>
             </div>
    		    </c:forEach>
-			<div class="noticePopUp" style="position: absolute; width:100px; height:100px; left:50%; top:50%; margin-left:-50px; margin-top:-50px;">
-				This is the pop up
-			</div>
 	    	</div>
              <div class="col-sm-3 shortnoticeHeight">
               <div class="short-notice-slider">
@@ -101,8 +103,27 @@
              </div>
             </div>  
 		</div>
+
+		<div id="Lightbox" class="modal">
+			<span class="close pointer" onclick="closeLightBox()">&times;</span>
+			<div class="content">
+			  <div class="notice">
+				<div class="notice-header">
+				 <h3 id="lightbox-notice-title" class="notice-title">${note.title}</h3>
+				</div>
+				<div class=notice-body>
+				 <p id="lightbox-notice-summary" class=notice-summary>${note.summary}</p>
+				 <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" type="date" /></p>
+				 <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" type="both" /></p>
+				 <button class=bookmarkbutton onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button> 
+				</div>
+			  </div>
+			</div>
+		  </div>
+
     </section>
     </div>
+	<script type="text/javascript" src="${contextPath}/resources/js/lightbox.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
