@@ -64,36 +64,36 @@
 		<div class="item row">
             <div class="col-sm-9">
             <c:forEach var="chnl" items="${Channels}">
-          	<div class="channel">
-          	 <h2 class="channel-title">${chnl.title}</h2>
-          	 <div class="channel-body">
-          	  <div class="notice-slider">
-          	   <c:forEach var="note" items="${chnl.notices}">
-          	    <div class="notice">
-          	     <div class="notice-header">
-          	      <h3 class="notice-title">${note.title}</h3>
-          	     </div>
-          	     <div class=notice-body>
-          	      <p class=notice-summary>${note.summary}</p>
-          	      <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
-          	      <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
-                 </div>
-                 <button class=bookmarkbutton onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button>
-				 <button onclick="openLightBox(); 
-                    showNoticeTitle('${note.title}'); 
-                    showNoticeSummary('${note.summary}');
-                    showNoticeCreateDate('${note.createdAt}');
-                    showNoticeExpireDate('${note.expirationDate}');" style="width:60px; height:30px">View</button>
-          	    </div>
-          	    </c:forEach>
-          	   </div>
-             </div>
-            </div>
+				<div class="card notice-card" style="">
+					<h2 class="card-title bg-primary">${chnl.title}</h2>
+					<div class="card-body">
+					 <div class="notice-slider">
+					  <c:forEach var="note" items="${chnl.notices}">
+					   <div class="notice" style="width: 25rem;">
+						<div class="notice-header">
+						 <h3 class="notice-title">${note.title}</h3>
+						</div>
+						<div class=notice-body>
+						 <p class=notice-summary>${note.summary}</p>
+						 <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
+						 <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
+					  </div>
+					  <button class="bookmarkbutto btn btn-primary" onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button>
+					  <button  class="btn btn-primary" onclick="openLightBox(); 
+						 showNoticeTitle('${note.title}'); 
+						 showNoticeSummary('${note.summary}');
+						 showNoticeCreateDate('${note.createdAt}');
+						 showNoticeExpireDate('${note.expirationDate}');" style="width:60px; height:30px">View</button>
+					   </div>
+					   </c:forEach>
+					  </div>
+				  </div>
+				 </div>
    		    </c:forEach>
 	    	</div>
              <div class="col-sm-3 shortnoticeHeight">
-              <div class="short-notice-slider">
-               <h2>Short Notices</h2>
+              <div class="short-notice-slider bg-primary">
+               <h2 class="bg-primary">Short Notices</h2>
                <c:forEach var="shnote" items="${ShortNotices}"> 
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
@@ -105,21 +105,25 @@
 		</div>
 
 		<div id="Lightbox" class="modal">
-			<span class="close pointer" onclick="closeLightBox()">&times;</span>
-			<div class="content">
-			  <div class="notice">
-				<div class="notice-header">
-				 <h3 id="lightbox-notice-title" class="notice-title">${note.title}</h3>
+			<!--<span class="close pointer" onclick="closeLightBox()">&times;</span>-->
+			<!--<div class="content">-->
+				<div class="modal-dialog">
+					<div class="modal-content">
+				<div class="modal-header">
+				  <h3 id="lightbox-notice-title" class="modal-title">${note.title}</h3>
+				  <span type="button" class="model-close pointer"  onclick="closeLightBox()" aria-label="Close">X</span>
 				</div>
-				<div class=notice-body>
+				<div class="modal-body">
 				 <p id="lightbox-notice-summary" class=notice-summary>${note.summary}</p>
 				 <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" type="date" /></p>
 				 <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" type="both" /></p>
 				 <button class=bookmarkbutton onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button> 
 				</div>
-			  </div>
+			 <!-- </div>-->
+			</div>
 			</div>
 		  </div>
+		 
 
     </section>
     </div>

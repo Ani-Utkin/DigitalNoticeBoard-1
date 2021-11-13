@@ -2,7 +2,9 @@ package com.ualbany.digitalnoticeboard.model;
 
 public enum UserRoleType {
 	USER("user"),
-	ADMIN("admin");
+	ADMIN("admin"),
+	FACULTY("faculty"),
+	STUDENT("student");
 	
 	private final String name;       
 

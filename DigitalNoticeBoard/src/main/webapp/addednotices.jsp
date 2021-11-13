@@ -47,8 +47,9 @@
 </nav>
 <body>
 <div class="container">
+  <div class="row">
     <c:forEach var="note" items="${notices}">
-    <div class="notice">
+    <!-- <div class="notice">
      <div class="notice-header">
       <h3 class="notice-title">${note.title}</h3>
      </div>
@@ -57,16 +58,90 @@
       <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
       <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
       </div>
+    </div>-->
+   
+      <div class="col-ms-4">
+      <div class="card notice" style="width: 25rem;">
+        <h3 class="card-title bg-primary">${note.title}</h3>
+          <div class="card-body">      
+          <p class=notice-summary>${note.summary}</p>
+          <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
+          <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
+          <button id="delete-button" onclick="deleteRecord(${note.id})" class="btn btn-primary">Delete</button>
+        </div>
+      </div>
     </div>
-    </c:forEach> 
+ 
+    </c:forEach>  
+  </div>
+  <div class="card" style="">
+    <ul class="list-group list-group-flush">
     <c:forEach var="shnote" items="${ShortNotices}"> 
-      <div class="shortnotice">
- 		<p>${shnote.details}</p>
- 		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
- 	   </div>
-    </c:forEach>	  
+     <!-- <div class="shortnotice">-->
+        <li class="list-group-item">
+ 		      <p>${shnote.details}</p>
+           <div>
+ 	      	<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
+           <button id="delete-snote" onclick="deleteShortNoticeRecord(${shnote.id})" class="btn btn-primary float-right">Delete</button>
+           </div>
+
+ 	   <!--</div>-->
+    </li>
+    
+
+    </c:forEach>
+    </ul>	 
+  </div> 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+<script>
+  var contextPath="${contextPath}";
+  var userName="${user.username}"
+
+function deleteRecord(id){
+  
+    if(confirm("Are you sure you want to delete the Notice?")){
+      $.ajax({
+        url: contextPath+"/"+userName+"/notice/deletenotice/"+id,
+        method: 'GET',
+        success: function () {
+            window.location.reload();
+        },
+        error: function (error) {
+            alert(error);
+        }
+    })
+
+    }
+    else{
+      //alert("no");
+        return false;
+    }
+};
+function deleteShortNoticeRecord(id){
+  
+  if(confirm("Are you sure you want to delete the Short Notice?")){
+    $.ajax({
+      url: contextPath+"/"+userName+"/notice/deleteshortnotice/"+id,
+      method: 'GET',
+      success: function () {
+          //alert('record has been deleted');
+          //getAllBooks();
+          window.location.reload();
+      },
+      error: function (error) {
+          alert(error);
+      }
+  })
+
+  }
+  else{
+    //alert("no");
+      return false;
+  }
+};
+
+</script>
 </body>
 </html>

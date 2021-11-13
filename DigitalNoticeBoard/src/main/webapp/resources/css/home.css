@@ -52,7 +52,7 @@
 }
 
 .shortnotice{
-	background-color: #F5F5DC;
+	background-color: #f8f9fa;
 	color: black;
 	border: 2px solid black;
 	-webkit-box-sizing: border-box;
@@ -93,4 +93,18 @@
 
 .short-notice-slider{
 	background-color:#8c8c8c;
+}
+.notice-card {
+    border: 2px solid black;
+    -webkit-box-sizing: border-box;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+.model-close{
+	color: #524f4f;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
 }
