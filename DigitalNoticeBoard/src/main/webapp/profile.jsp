@@ -49,10 +49,10 @@
 </nav>
 <body>
 	<div class="maincontent">
-	<section id="">
+	<!-- <section id="">
 		<div class="item row align-items-center">
 		    <div class="col-sm-9">
-	            <p>First Name: ${profile.firstName}</p>
+	            <p>: ${profile.firstName}</p>
 	            <p>Last Name: ${profile.lastName}</p>
 	            <p>Address : ${profile.address1},<br>${profile.address2}</p>
 	            <p>Phone : ${profile.phone}</p>
@@ -62,7 +62,48 @@
              	<a href="${contextPath}/${user.username}/profile/edit">Edit Profile</a>
             </div>  
 		</div>
-    </section>
+    </section>-->
+	<div class="col-md-12">
+		<div class="card mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-3">
+						<h6 class="mb-0">First Name</h6>
+					</div>
+					<div class="col-sm-9 text-secondary"> ${profile.firstName}</div>
+				</div><hr><div class="row">
+					<div class="col-sm-3">
+						<h6 class="mb-0">Last Name</h6>
+					</div>
+					<div class="col-sm-9 text-secondary"> ${profile.lastName}</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-3">
+						<h6 class="mb-0">Email</h6></div>
+						<div class="col-sm-9 text-secondary">${profile.user.email}</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Phone</h6>
+						</div
+						><div class="col-sm-9 text-secondary"> ${profile.phone}</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Address</h6></div>
+							<div class="col-sm-9 text-secondary"> ${profile.address1},<br>${profile.address2}</div>
+						</div><hr>
+						<div class="row">
+							<div class="col-sm-12">
+								 <a class="btn btn-info "  href="${contextPath}/${user.username}/profile/edit">Edit</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

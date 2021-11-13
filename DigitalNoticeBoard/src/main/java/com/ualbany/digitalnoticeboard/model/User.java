@@ -23,6 +23,9 @@ public class User extends Persistable {
     private VerificationToken verificationToken;
     private Boolean isActive;
     private Profile profile;
+    private String role;
+    private String department;
+    private String levelOfDegree;
     
     List<GroupMember> membergroups = new ArrayList<GroupMember>();
 	List<Notice> bookmarkednotices = new ArrayList<Notice>();
@@ -131,4 +134,30 @@ public class User extends Persistable {
 	public void setProfile(Profile profile) {
 		this.profile = profile;
 	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getLevelOfDegree() {
+		return levelOfDegree;
+	}
+
+	public void setLevelOfDegree(String levelOfDegree) {
+		this.levelOfDegree = levelOfDegree;
+	}
+	
+	
 }

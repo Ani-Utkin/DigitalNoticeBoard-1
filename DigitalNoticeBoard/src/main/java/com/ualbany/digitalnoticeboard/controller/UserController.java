@@ -63,8 +63,14 @@ public class UserController {
         Role role = new Role();
         role.setCreatedAt(now);
         role.setUpdatedAt(now);
-        role.setRoleType(UserRoleType.USER);
-        
+        if(userForm.getRole().equalsIgnoreCase(UserRoleType.FACULTY.name())) {
+        	 role.setRoleType(UserRoleType.FACULTY);
+        }else if(userForm.getRole().equalsIgnoreCase(UserRoleType.STUDENT.name())) {
+       	 role.setRoleType(UserRoleType.STUDENT);
+       }else {
+        	 role.setRoleType(UserRoleType.USER);
+        }     
+    
         userForm.addRole(role);
         userForm.setCreatedAt(now);
         userForm.setUpdatedAt(now);

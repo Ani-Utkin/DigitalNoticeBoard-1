@@ -7184,7 +7184,7 @@ img {
     max-height: 40px; }
 
 .maincontent {
-  border: double medium #e5e3d6;
+ /* border: double medium #e5e3d6;*/
   border-top: 0;
   margin: 0 30px;
   padding: 40px 0;
