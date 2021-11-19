@@ -31,4 +31,10 @@ public class NoticeService {
     public List<Notice> getUserCreatedNotices(User user) {
     	return repository.findByCreatedBy(user);
     }
+    public void deleteNoticeById(User user,Long id) {
+    	Optional<Notice> notice= repository.findByIdAndCreatedBy(id,user);
+    	if(notice.isPresent()) {
+    		repository.delete(notice.get());    		
+    	}
+    }
 }

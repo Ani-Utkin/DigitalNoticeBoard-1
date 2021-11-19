@@ -33,15 +33,40 @@
                     <form:input type="text" path="email" name="email" class="form-control" placeholder="Email"></form:input>
                     <form:errors path="email"></form:errors>
                 </div>
+            </spring:bind>          
+        
+       <!--     <spring:bind path="role">
+                <div class="form-group ${status.error ? 'has-error' : ''}">
+                    <form:select path="role" class="form-control" onchange="showLevelOfDegree(this.value)">
+                            <form:option value="Student" label="Student" />
+                            <form:option value="Faculty" label="Faculty" />
+                    </form:select>
+                </div>
             </spring:bind>
-            
+            <spring:bind path="department">
+                <div class="form-group ${status.error ? 'has-error' : ''}">
+                    <form:input type="text" path="department" class="form-control" placeholder="department"></form:input>
+                    <form:errors path="department"></form:errors>
+                </div>
+            </spring:bind>
+       
+            <spring:bind path="levelOfDegree">
+                <div id="levelOfDegree" class="form-group ${status.error ? 'has-error' : ''}">
+                    <form:select path="levelOfDegree" class="form-control">
+                            <form:option value="Graduate" label="Graduate" />
+                            <form:option value="Undergraduate" label="Undergraduate" />
+                            <form:option value="PHD" label="PHD" />
+                    </form:select>
+                </div>
+            </spring:bind>-->
+
             <spring:bind path="password">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
                     <form:errors path="password"></form:errors>
                 </div>
             </spring:bind>
-
+            
             <spring:bind path="passwordConfirm">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="password" path="passwordConfirm" class="form-control"
@@ -50,12 +75,22 @@
                 </div>
             </spring:bind>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+            <h3 class="text-center"><a href="${contextPath}/signin">Already Have an Account ? Sign in</a></h3>
         </form:form>
 
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+    <script>
+         document.getElementById("levelOfDegree").style.display='block';
+        function showLevelOfDegree(value){
+           if(value == "Faculty"){
+               document.getElementById("levelOfDegree").style.display='none';
+           }else{
+           document.getElementById("levelOfDegree").style.display='block';}
+        }
+    </script>
     
   </body>
 </html>

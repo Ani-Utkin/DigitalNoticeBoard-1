@@ -1,6 +1,7 @@
 package com.ualbany.digitalnoticeboard.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,4 +28,11 @@ public class ShortNoticeService {
 	 public List<ShortNotice> getUserCreatedNotices(User user) {
 	    	return repository.findByCreatedBy(user);
 	    }
+
+	public void deleteShortNoticeById(User user, Long id) {
+		Optional<ShortNotice> shortNotice=	repository.findByIdAndCreatedBy(id,user);
+		if(shortNotice.isPresent()) {
+    		repository.delete(shortNotice.get());    		
+		}	
+	}
 }

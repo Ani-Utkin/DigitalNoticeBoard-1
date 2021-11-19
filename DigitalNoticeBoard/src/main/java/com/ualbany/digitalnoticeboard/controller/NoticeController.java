@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,6 +65,10 @@ public class NoticeController extends BaseController {
 	@GetMapping("/{username}/notice/addedNotices")
     public ModelAndView addedNoticesGetRequest(@PathVariable final String username, Model model) {
 		User user = userService.findByUsername(username);
+        return getNoticeList(user);
+    }
+	public ModelAndView getNoticeList(User user) {
+		
         List<Notice> notices= noticeService.getUserCreatedNotices(user);
         List<ShortNotice> shortnotices = shortNoticeService.getUserCreatedNotices(user);
 		
@@ -72,5 +77,11 @@ public class NoticeController extends BaseController {
 		mv.addObject("notices", notices);      
         mv.addObject("ShortNotices", shortnotices);
         return mv;
+	}
+	@GetMapping("/{username}/notice/deletenotice/{id}")
+    public ModelAndView deleteNoticesById(@PathVariable final String username,@PathVariable final Long id, Model model) {
+		User user = userService.findByUsername(username);
+       noticeService.deleteNoticeById(user, id);
+        return getNoticeList(user);
     }
 }

@@ -5,7 +5,8 @@ body {
    //  border: 1px solid black;
     font-size: 2rem;
     background-repeat: no-repeat;
-    background-size: cover;  
+    background-size: cover; 
+    background-image: url(../img/morning.png); 
     }
 
 .form-signin {
