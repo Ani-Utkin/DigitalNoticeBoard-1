@@ -74,7 +74,7 @@
           	      <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
           	      <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
                  </div>
-                 <button class=bookmarkbutton onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button>
+                 <button class=bookmarkbutton onclick="onBookMarkNotice('${user}', '${note.id}')" style="width:60px; height:30px">BM</button>
 				 <button onclick="viewNotice('${note.id}')" style="width:60px; height:30px">View</button>
           	    </div>
           	    </c:forEach>
