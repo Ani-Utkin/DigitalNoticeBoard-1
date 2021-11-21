@@ -158,16 +158,15 @@
  
   /*test for share, not completed*/	
   
-  <script type="text/javascript">
+<script type="text/javascript">
     function openDialog(){undefined
-        paramers="dialogWidth:800px; dialogHeight:500px; status:no";
-        workerId = window.showModalDialog("share.jsp","",paramers);
+        workerId = window.open('share.jsp','','width=900,height=400');
        
         if(workerId!=undefined && workerId!=""){undefined
            document.getElementById("leader").value = workerId;
           }
         }
-   </script>
+</script>
    
  <script>
   function share() {
