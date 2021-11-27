@@ -103,7 +103,7 @@
                <c:forEach var="shnote" items="${ShortNotices}"> 
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
-            		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
+            		<p>Expires in: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH" /> hrs</p>
             	   <button class=sharebutton onclick="shareShort()" style="width:60px; height:30px">share</button>
             	   </div>           	   
                </c:forEach>

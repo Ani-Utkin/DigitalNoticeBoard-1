@@ -84,7 +84,7 @@
         <li class="list-group-item">
  		      <p>${shnote.details}</p>
            <div>
- 	      	<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
+ 	      	<p>Expires in: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH" /> hrs</p>
            <button id="delete-snote" onclick="deleteShortNoticeRecord(${shnote.id})" class="btn btn-primary float-right">Delete</button>
            </div>
 
