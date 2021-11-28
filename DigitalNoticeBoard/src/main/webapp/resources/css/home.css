@@ -17,7 +17,7 @@
 }
 
 .notice-body{
-	background-color: white;
+	background-color: #F5F1FD;
 	color:#302929;
 }
 
@@ -27,17 +27,17 @@
 	border-bottom:2px solid black;
 	border-right:2px solid black;
 	border-left:2px solid black;
-	background-color: #fffefe;
+	background-color: #F5F1FD;
 	padding-bottom:20px;
 	padding-top:10px;
-	color: white;
+	color: #F5F1FD;
 }
 
 .channel-body{
-	background-color: white;
+	background-color: #F5F1FD;
 	padding-left: 30px;
 	padding-right:30px;
-	color: white;
+	color: #F5F1FD;
 }
 
 .channel-title{
@@ -45,11 +45,11 @@
 	padding-right:30px;
 	margin-bottom:5px;
 	background-color: #c48424;
-	color: white;
+	color: black;
 }
 
 .shortnotice{
-	background-color: #f8f9fa;
+	background-color: #F5F1FD;
 	color: black;
 	border: 2px solid black;
 	-webkit-box-sizing: border-box;
