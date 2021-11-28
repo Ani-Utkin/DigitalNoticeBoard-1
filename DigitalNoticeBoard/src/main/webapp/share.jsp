@@ -48,11 +48,11 @@
 			</tr>
 			<tr>
 				<td style="text-align:center;">title</td>
-				<td style="text-align:center;"><input type="text" value="" name="title" style="background-color:#ffffff;height:40px;width:300px;" /></td>
+				<td style="text-align:center;"><input type="text" id="notice-email-title" disabled="disabled" value="Enter Title" name="title" style="background-color:#ffffff;height:40px;width:300px;" /></td>
 			</tr>
 			<tr>
 				<td style="text-align:center;">notice content</td>
-				<td style="text-align:center;"><input type="text" value="" name="link" style="background-color:#ffffff;height:40px;width:300px;"  /></td>
+				<td style="text-align:center;"><input type="text" id="notice-email-content" disabled="disabled" value="Enter Content" name="link" style="background-color:#ffffff;height:40px;width:300px;"  /></td>
 			</tr>			
 			<tr>
 				<td style="text-align:center;">message</td>
