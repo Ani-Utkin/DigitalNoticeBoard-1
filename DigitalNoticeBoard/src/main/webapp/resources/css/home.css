@@ -10,7 +10,7 @@
 }  
 
 .notice-header{
-    background-color: pink;
+    background-color: #BC8F8F;
     border-radius: 5px 5px 0px 0px;
     padding: 5px;
     color: black;
@@ -97,7 +97,7 @@
 .notice-card {
     border: 2px solid black;
     -webkit-box-sizing: border-box;
-    background-color: white;
+    background-color: #f8f9fa;
     border-radius: 5px;
     margin: 10px;
 }

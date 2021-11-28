@@ -7184,10 +7184,10 @@ img {
     max-height: 40px; }
 
 .maincontent {
- /* border: double medium #e5e3d6;*/
-  border-top: 0;
+  /*border: double medium #e5e3d6;*/
+  border-top: 20;
   margin: 0 30px;
-  padding: 40px 0;
+  padding: 30px 0;
   overflow: hidden;
   font-size: 2rem; }
 
