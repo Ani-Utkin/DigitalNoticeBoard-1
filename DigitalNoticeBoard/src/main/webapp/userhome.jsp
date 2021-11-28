@@ -87,9 +87,7 @@
 					  <button  class="btn btn-primary" onclick="openLightBox(); 
 						 showNoticeTitle('${note.title}'); 
 						 showNoticeSummary('${note.summary}');" style="width:60px; height:30px">View</button>
-					  <button class="btn btn-primary" style="width:60px; height:30px" onclick="openLightBox();
-						  showNoticeTitle('${note.title}'); 
-						 showNoticeSummary('${note.summary}');">share</button>
+					  <button class="btn btn-primary" style="width:60px; height:30px" onclick="share('${note.title}', '${note.summary}')">share</button>
 					   </div>
 					   </c:forEach>
 					  </div>
@@ -104,7 +102,7 @@
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
             		<p>Expires in: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH" /> hrs</p>
-            	   <button class=sharebutton onclick="shareShort()" style="width:60px; height:30px">share</button>
+            	   <button class=sharebutton onclick="shareShort('${shnote.details}')" style="width:60px; height:30px">share</button>
             	   </div>           	   
                </c:forEach>
              </div>
@@ -112,8 +110,6 @@
 		</div>
 
 		<div id="Lightbox" class="modal">
-			<!--<span class="close pointer" onclick="closeLightBox()">&times;</span>-->
-			<!--<div class="content">-->
 				<div class="modal-dialog">
 					<div class="modal-content">
 				<div class="modal-header">
@@ -123,9 +119,8 @@
 				<div class="modal-body">
 				 <p id="lightbox-notice-summary" class=notice-summary>${note.summary}</p>
 				 <button class=bookmarkbutton onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button> 
-				 <button class=sharebutton onclick="share()" style="width:60px; height:30px">share</button>
+				<!--<button class=sharebutton onclick="share('${note.title}', '${note.summary}')" style="width:60px; height:30px">share</button> --> 
 				</div>
-			 <!-- </div>-->
 			</div>
 			</div>
 		  </div>
@@ -159,9 +154,15 @@
   /*test for share, not completed*/	
   
 <script type="text/javascript">
-    function openDialog(){undefined
+    function openDialog(t, s){undefined
+
         workerId = window.open('share.jsp','','width=900,height=400');
-       
+
+		workerId.onload = function() {
+			workerId.document.getElementById("notice-email-title").value = t;
+			workerId.document.getElementById("notice-email-content").value = s;
+		}
+
         if(workerId!=undefined && workerId!=""){undefined
            document.getElementById("leader").value = workerId;
           }
@@ -169,9 +170,9 @@
 </script>
    
  <script>
-  function share() {
+  function share(t, s) {
     if (confirm("You can copy the notice content before clicking the share button, go to next step?")) {
-    	openDialog();
+    	openDialog(t, s);
     } 
     else {
     }
@@ -179,9 +180,9 @@
 </script>
 
  <script>
-  function shareShort(){
+  function shareShort(s){
     if (confirm("Share this short notice?")) {
-    	openDialog();
+    	openDialog("Short Notice", s);
     } 
     else {
     }
