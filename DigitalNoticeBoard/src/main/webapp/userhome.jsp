@@ -171,7 +171,7 @@
    
  <script>
   function share(t, s) {
-    if (confirm("You can copy the notice content before clicking the share button, go to next step?")) {
+    if (confirm("Share this notice?")) {
     	openDialog(t, s);
     } 
     else {
