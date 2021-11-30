@@ -100,14 +100,15 @@ public class UserController {
     	if (bindingResult.hasErrors()) {
             return new ModelAndView("signin");
         }
+    	User user = userService.findById(userForm.getId());
     	ModelAndView mv = new ModelAndView("userhome");
-    	mv.addObject("user", userForm);
+    	mv.addObject("user", user);
     	List<Channel> channels = channelService.getAllPublicChannels();
     	mv.addObject("Channels", channels);
     	List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
     	mv.addObject("ShortNotices", shortnotices);
-    	List<Group> groups = groupService.getUserGroups(userForm);
+    	List<Group> groups = groupService.getUserGroups(user);
     	mv.addObject("groups", groups);
         return mv;
     }
