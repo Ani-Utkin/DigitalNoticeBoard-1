@@ -28,16 +28,13 @@ public class VerificationTokenService {
     }
 
     public void createVerification(String email){
-        List<User> users = userRepository.findByEmail(email);
-        User user;
-        if (users.isEmpty()) {
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
             user = new User();
             user.setEmail(email);
             userRepository.save(user);
-        } else {
-            user = users.get(0);
-        }
-
+        } 
+        
         List<VerificationToken> verificationTokens = verificationTokenRepository.findByUserEmail(email);
         VerificationToken verificationToken;
         if (verificationTokens.isEmpty()) {

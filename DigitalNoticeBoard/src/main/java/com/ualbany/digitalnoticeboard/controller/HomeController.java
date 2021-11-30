@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ualbany.digitalnoticeboard.model.Channel;
+import com.ualbany.digitalnoticeboard.model.Group;
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
 import com.ualbany.digitalnoticeboard.model.User;
 import com.ualbany.digitalnoticeboard.service.ChannelService;
+import com.ualbany.digitalnoticeboard.service.GroupService;
 import com.ualbany.digitalnoticeboard.service.ShortNoticeService;
 import com.ualbany.digitalnoticeboard.service.UserService;
 
@@ -28,6 +30,9 @@ public class HomeController extends BaseController{
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	GroupService groupService;
 	
 	@GetMapping({"/", "/home"})
     public ModelAndView homeGet(Model model) {
@@ -52,6 +57,8 @@ public class HomeController extends BaseController{
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
         
         mv.addObject("ShortNotices", shortnotices);
+        List<Group> groups = groupService.getUserGroups(user);
+    	mv.addObject("groups", groups);
         return mv;
     }
 }

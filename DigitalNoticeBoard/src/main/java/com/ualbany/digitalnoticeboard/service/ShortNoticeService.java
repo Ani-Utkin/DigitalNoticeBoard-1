@@ -1,5 +1,6 @@
 package com.ualbany.digitalnoticeboard.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
 import com.ualbany.digitalnoticeboard.model.User;
-import com.ualbany.digitalnoticeboard.model.Status;
 import com.ualbany.digitalnoticeboard.repository.ShortNoticeRepository;
 
 @Service
@@ -22,7 +22,8 @@ public class ShortNoticeService {
 	}
 	
 	public List<ShortNotice> getAllActiveNotices(){
-		return repository.findByStatus(Status.ACTIVE);
+		Date now = new Date();
+		return repository.findByExpirationDateAfter(now);
 	}
 	
 	 public List<ShortNotice> getUserCreatedNotices(User user) {

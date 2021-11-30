@@ -1,12 +1,12 @@
 package com.ualbany.digitalnoticeboard.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ualbany.digitalnoticeboard.model.Channel;
-import com.ualbany.digitalnoticeboard.model.Status;
 import com.ualbany.digitalnoticeboard.repository.ChannelRepository;
 
 @Service
@@ -20,6 +20,7 @@ public class ChannelService {
 	}
 	
 	public List<Channel> getAllPublicChannels(){
-		return repository.findByStatus(Status.ACTIVE);
+		Date now = new Date();
+		return repository.findByNoticeExpirationDateGraterThanEqual(now);
 	}
 }

@@ -41,7 +41,7 @@
       </li>
       <c:forEach var="grp" items="${groups}">
       <li class="nav-item">
-        <a class="nav-link" href="${contextPath}/${user.username}/group/${grp.id}">${grp.title}</a>
+        <a class="nav-link" href="${contextPath}/${user.username}/group/${grp.id}">${grp.name}</a>
       </li>
       </c:forEach>
     </ul>

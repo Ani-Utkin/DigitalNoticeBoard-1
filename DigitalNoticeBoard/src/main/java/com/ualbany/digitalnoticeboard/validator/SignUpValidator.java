@@ -33,7 +33,7 @@ public class SignUpValidator implements Validator {
         }
         
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
-        if (!userService.findByEmail(user.getEmail()).isEmpty()) {
+        if (userService.findByEmail(user.getEmail()) != null) {
             errors.rejectValue("email", "Duplicate.userForm.email");
         }     
         

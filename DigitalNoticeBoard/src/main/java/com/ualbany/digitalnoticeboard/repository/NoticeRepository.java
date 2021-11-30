@@ -10,6 +10,5 @@ import com.ualbany.digitalnoticeboard.model.User;
 
 public interface NoticeRepository extends JpaRepository<Notice, Long> {
 	public List<Notice> findByCreatedBy(User user);
-
 	public Optional<Notice> findByIdAndCreatedBy(Long id, User user);
 }

@@ -1,5 +1,6 @@
 package com.ualbany.digitalnoticeboard.repository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,5 +15,5 @@ public interface ShortNoticeRepository extends JpaRepository<ShortNotice, Long> 
 	public List<ShortNotice> findByStatus(Status status);
 	public List<ShortNotice> findByCreatedBy(User user);
 	public Optional<ShortNotice> findByIdAndCreatedBy(Long id, User user);
-
+	public List<ShortNotice> findByExpirationDateAfter(Date date);
 }
