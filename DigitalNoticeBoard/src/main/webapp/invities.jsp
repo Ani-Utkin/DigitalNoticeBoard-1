@@ -60,12 +60,12 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	<c:forEach var="invite" items="${received}">
+			  	<c:forEach var="invite" items="${recieved}">
                  	<tr>
                       <td>${invite.sender.username}</td>
                       <td>${invite.group.name}</td>
-                      <td><button id="acceptBtn" onclick="accept(${invite.id})" class="btn btn-primary float-right">Accept</button></td>
-                      <td><button id="declineBtn" onclick="decline(${invite.id})" class="btn btn-primary float-right">Accept</button></td>
+                      <td><button id="acceptBtn" onclick="accept(${invite.id})" class="btn btn-primary float-right">Accept</button>
+                      <button id="declineBtn" onclick="decline(${invite.id})" class="btn btn-primary float-right">Decline</button></td>
                      </tr>
           		</c:forEach>
 			  </tbody>

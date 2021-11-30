@@ -27,8 +27,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="${contextPath}/${user.username}/userhome">Public <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="${contextPath}/${user.username}/userhome">Public</a>
       </li>
+       <c:forEach var="grp" items="${groups}">
+      <li class="nav-item">
+        <a class="nav-link" href="${contextPath}/${user.username}/group/${grp.id}">${grp.name}</a>
+      </li>
+      </c:forEach>
     </ul>
     <div class="dropdown">
 	  <a class="btn btn-secondary dropdown-toggle" href="1" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

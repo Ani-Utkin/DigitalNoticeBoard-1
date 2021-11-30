@@ -27,6 +27,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="${contextPath}/${user.username}/userhome">Public <span class="sr-only">(current)</span></a>
       </li>
+       <c:forEach var="grp" items="${groups}">
+      <li class="nav-item">
+        <a class="nav-link" href="${contextPath}/${user.username}/group/${grp.id}">${grp.name}</a>
+      </li>
+      </c:forEach>
     </ul>
   </div>
 </nav>

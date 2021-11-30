@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ualbany.digitalnoticeboard.model.Channel;
+import com.ualbany.digitalnoticeboard.model.Group;
 import com.ualbany.digitalnoticeboard.model.Notice;
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
 import com.ualbany.digitalnoticeboard.model.User;
 import com.ualbany.digitalnoticeboard.service.ChannelService;
+import com.ualbany.digitalnoticeboard.service.GroupService;
 import com.ualbany.digitalnoticeboard.service.NoticeService;
 import com.ualbany.digitalnoticeboard.service.ShortNoticeService;
 import com.ualbany.digitalnoticeboard.service.UserService;
@@ -37,6 +39,9 @@ public class NoticeController extends BaseController {
 	@Autowired
 	ShortNoticeService shortNoticeService;
 	
+	@Autowired
+	GroupService groupService;
+	
 	@GetMapping(value = "/{username}/notice/addNotice")
     public ModelAndView addNoticeGetRequest(@PathVariable final String username, @ModelAttribute("noticeForm") Notice noticeForm, BindingResult bindingResult, Model model) {
 		User user = userService.findByUsername(username);
@@ -44,6 +49,8 @@ public class NoticeController extends BaseController {
 	    List<Channel> publicChannels = channelService.getAllPublicChannels();
         mv.addObject("user", user);
         mv.addObject("channels", publicChannels);
+        List<Group> groups = groupService.getUserGroups(user);
+    	mv.addObject("groups", groups);
         return mv;
     }
 	 
@@ -61,6 +68,8 @@ public class NoticeController extends BaseController {
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
 
         mv.addObject("ShortNotices", shortnotices);
+        List<Group> groups = groupService.getUserGroups(user);
+    	mv.addObject("groups", groups);
         return mv;
     }
 	
@@ -80,6 +89,8 @@ public class NoticeController extends BaseController {
 		mv.addObject("user", user);
 		mv.addObject("notices", notices);      
         mv.addObject("ShortNotices", shortnotices);
+        List<Group> groups = groupService.getUserGroups(user);
+    	mv.addObject("groups", groups);
         return mv;
 	}
 	@GetMapping("/{username}/notice/deletenotice/{id}")

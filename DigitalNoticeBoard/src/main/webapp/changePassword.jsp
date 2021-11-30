@@ -203,8 +203,13 @@ input[type=submit]:hover {
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Public <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="${contextPath}/${user.username}/userhome">Public <span class="sr-only">(current)</span></a>
       </li>
+      <c:forEach var="grp" items="${groups}">
+      <li class="nav-item">
+        <a class="nav-link" href="${contextPath}/${user.username}/group/${grp.id}">${grp.name}</a>
+      </li>
+      </c:forEach>
     </ul>
     <a href="${contextPath}/signin">SignIn</a>
   </div>
