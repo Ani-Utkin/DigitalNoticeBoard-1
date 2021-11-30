@@ -30,7 +30,7 @@
         <a class="nav-link" href="${contextPath}/${user.username}/userhome">Public</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="${contextPath}/${user.username}/group/${grp.id">${group.name}</a>
+        <a class="nav-link" href="${contextPath}/${user.username}/group/${grp.id}">${group.name}</a>
       </li>
     </ul>
     <div class="fb-share-button" data-href="https://blackboard.albany.edu" data-layout="button"></div>
