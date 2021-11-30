@@ -64,8 +64,8 @@
                  	<tr>
                       <td>${invite.sender.username}</td>
                       <td>${invite.group.name}</td>
-                      <td><button id="acceptBtn" onclick="accept(${invite.id})" class="btn btn-primary float-right">Accept</button>
-                      <button id="declineBtn" onclick="decline(${invite.id})" class="btn btn-primary float-right">Decline</button></td>
+                      <td><button id="acceptBtn" onclick="accept(${invite.group.id},${invite.id})" class="btn btn-primary float-right">Accept</button>
+                      <button id="declineBtn" onclick="decline(${invite.group.id},${invite.id})" class="btn btn-primary float-right">Decline</button></td>
                      </tr>
           		</c:forEach>
 			  </tbody>
@@ -96,11 +96,10 @@
     <script>
   	var contextPath="${contextPath}";
   	var userName="${user.username}"
-  	var grpId="${group.id}"
 	
-	function accept(id){
+	function accept(grpId, id){
   		$.ajax({
-	        url: contextPath+"/"+userName+"/grpId/"+id+"/accept",
+	        url: contextPath+"/"+userName+"/invite/"+grpId+"/"+id+"/accept",
 	        method: 'GET',
 	        success: function () {
 	            window.location.reload();
@@ -110,9 +109,9 @@
 	        }
 	    })
 	};
-	function decline(id){
+	function decline(grpId, id){
 		$.ajax({
-	        url: contextPath+"/"+userName+"/grpId/"+id+"/decline",
+	        url: contextPath+"/"+userName+"/invite/"+grpId+"/"+id+"/decline",
 	        method: 'GET',
 	        success: function () {
 	            window.location.reload();
@@ -122,6 +121,6 @@
 	        }
 	    })
 	};
-    
+    </script>
 </body>
 </html>
