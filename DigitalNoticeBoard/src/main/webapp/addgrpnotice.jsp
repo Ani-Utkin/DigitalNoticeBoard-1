@@ -41,7 +41,6 @@
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 		<a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/${group.id}/addShortNotice">Add Short Notice</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/${group.id}/Invite">Invite Member</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/${group.id}/exit">Exit Group</a>
 		<a class="dropdown-item" href="${contextPath}/signout">SignOut</a>
 	  </div>

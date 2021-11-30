@@ -5,8 +5,11 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = {"title"}) })
 public class Channel extends Persistable {
 
 	private String title;

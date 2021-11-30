@@ -91,7 +91,7 @@ public class ShortNoticeController extends BaseController {
         
 		ModelAndView mv = new ModelAndView("userhome");
 		mv.addObject("user", user);
-        List<Channel> channels = channelService.getAllPublicChannels();
+        List<Channel> channels = channelService.getChannelsWithValidNotices();
         mv.addObject("Channels", channels);
 
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();

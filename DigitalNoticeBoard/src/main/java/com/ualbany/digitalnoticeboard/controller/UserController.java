@@ -69,14 +69,7 @@ public class UserController {
         Role role = new Role();
         role.setCreatedAt(now);
         role.setUpdatedAt(now);
-        if(userForm.getRole().equalsIgnoreCase(UserRoleType.FACULTY.name())) {
-        	 role.setRoleType(UserRoleType.FACULTY);
-        }else if(userForm.getRole().equalsIgnoreCase(UserRoleType.STUDENT.name())) {
-       	 role.setRoleType(UserRoleType.STUDENT);
-       }else {
-        	 role.setRoleType(UserRoleType.USER);
-        }     
-    
+        role.setRoleType(UserRoleType.USER); 
         userForm.addRole(role);
         userForm.setCreatedAt(now);
         userForm.setUpdatedAt(now);
@@ -103,7 +96,7 @@ public class UserController {
     	User user = userService.findByUsername(userForm.getUsername());
     	ModelAndView mv = new ModelAndView("userhome");
     	mv.addObject("user", user);
-    	List<Channel> channels = channelService.getAllPublicChannels();
+    	List<Channel> channels = channelService.getChannelsWithValidNotices();
     	mv.addObject("Channels", channels);
     	List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
@@ -121,7 +114,7 @@ public class UserController {
     @GetMapping("/signout")
     public ModelAndView getSignOut() {
     	 ModelAndView mv = new ModelAndView("home");
-         List<Channel> channels = channelService.getAllPublicChannels();
+         List<Channel> channels = channelService.getChannelsWithValidNotices();
          mv.addObject("Channels", channels);
          List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
          Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
@@ -145,7 +138,7 @@ public class UserController {
     	usr.setPassword(userForm.getPasswordConfirm());
     	ModelAndView mv = new ModelAndView("userhome");
     	mv.addObject("user", userForm);
-    	List<Channel> channels = channelService.getAllPublicChannels();
+    	List<Channel> channels = channelService.getChannelsWithValidNotices();
     	mv.addObject("Channels", channels);
     	List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
     	Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));

@@ -37,7 +37,7 @@ public class HomeController extends BaseController{
 	@GetMapping({"/", "/home"})
     public ModelAndView homeGet(Model model) {
         ModelAndView mv = new ModelAndView("home");
-        List<Channel> channels = channelService.getAllPublicChannels();
+        List<Channel> channels = channelService.getChannelsWithValidNotices();
         mv.addObject("Channels", channels);
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
@@ -51,7 +51,7 @@ public class HomeController extends BaseController{
 		User user = userService.findByUsername(username);
 		ModelAndView mv = new ModelAndView("userhome");
 		mv.addObject("user", user);
-        List<Channel> channels = channelService.getAllPublicChannels();
+        List<Channel> channels = channelService.getChannelsWithValidNotices();
         mv.addObject("Channels", channels);
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));

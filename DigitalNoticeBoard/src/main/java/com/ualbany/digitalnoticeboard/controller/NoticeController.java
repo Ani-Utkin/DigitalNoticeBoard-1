@@ -18,6 +18,7 @@ import com.ualbany.digitalnoticeboard.model.Group;
 import com.ualbany.digitalnoticeboard.model.Notice;
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
 import com.ualbany.digitalnoticeboard.model.User;
+import com.ualbany.digitalnoticeboard.model.dto.AddNoticeDto;
 import com.ualbany.digitalnoticeboard.service.ChannelService;
 import com.ualbany.digitalnoticeboard.service.GroupService;
 import com.ualbany.digitalnoticeboard.service.NoticeService;
@@ -43,26 +44,33 @@ public class NoticeController extends BaseController {
 	GroupService groupService;
 	
 	@GetMapping(value = "/{username}/notice/addNotice")
-    public ModelAndView addNoticeGetRequest(@PathVariable final String username, @ModelAttribute("noticeForm") Notice noticeForm, BindingResult bindingResult, Model model) {
+    public ModelAndView addNoticeGetRequest(@PathVariable final String username, @ModelAttribute("noticeForm") AddNoticeDto noticeForm, BindingResult bindingResult, Model model) {
 		User user = userService.findByUsername(username);
 	    ModelAndView mv = new ModelAndView("addnotice");
-	    List<Channel> publicChannels = channelService.getAllPublicChannels();
+	    List<String> channels = channelService.getAllChannels();
         mv.addObject("user", user);
-        mv.addObject("channels", publicChannels);
+        mv.addObject("channels", channels);
         List<Group> groups = groupService.getUserGroups(user);
     	mv.addObject("groups", groups);
         return mv;
     }
 	 
 	@PostMapping("/{username}/notice/addNotice")
-    public ModelAndView addNoticePutRequest(@PathVariable final String username, @ModelAttribute("noticeForm") Notice noticeForm, BindingResult bindingResult, Model model) {
+    public ModelAndView addNoticePutRequest(@PathVariable final String username, @ModelAttribute("noticeForm") AddNoticeDto noticeForm, BindingResult bindingResult, Model model) {
 		User user = userService.findByUsername(username);
-		setpersistableproperties(noticeForm, user);
-        noticeService.save(noticeForm);
+		Notice notice = new Notice();
+		notice.setTitle(noticeForm.getTitle());
+		notice.setSummary(noticeForm.getSummary());
+		notice.setDetails(notice.getDetails());
+		notice.setExpirationDate(noticeForm.getExpirationDate());
+		notice.setChannels(channelService.getChannelByTiles(noticeForm.getChannels()));
+		setpersistableproperties(notice, user);
+		
+        noticeService.save(notice);
         
 		ModelAndView mv = new ModelAndView("userhome");
 		mv.addObject("user", user);
-        List<Channel> channels = channelService.getAllPublicChannels();
+        List<Channel> channels = channelService.getChannelsWithValidNotices();
         mv.addObject("Channels", channels);
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));

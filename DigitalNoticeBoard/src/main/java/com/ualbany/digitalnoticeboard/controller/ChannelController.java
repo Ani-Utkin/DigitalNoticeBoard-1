@@ -48,7 +48,7 @@ public class ChannelController extends BaseController{
         
 		ModelAndView mv = new ModelAndView("userhome");
 		mv.addObject("user", user);
-        List<Channel> channels = channelService.getAllPublicChannels();
+        List<Channel> channels = channelService.getChannelsWithValidNotices();
         mv.addObject("Channels", channels);
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
