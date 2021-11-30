@@ -100,7 +100,7 @@ public class UserController {
     	if (bindingResult.hasErrors()) {
             return new ModelAndView("signin");
         }
-    	User user = userService.findById(userForm.getId());
+    	User user = userService.findByUsername(userForm.getUsername());
     	ModelAndView mv = new ModelAndView("userhome");
     	mv.addObject("user", user);
     	List<Channel> channels = channelService.getAllPublicChannels();
