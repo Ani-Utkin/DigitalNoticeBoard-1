@@ -75,6 +75,9 @@
           	      <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
           	      <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
                  </div>
+                 <button  class="btn btn-primary" onclick="openLightBox(); 
+						       showNoticeTitle('${note.title}'); 
+						       showNoticeSummary('${note.summary}');" style="width:60px; height:30px">View</button>
           	    </div>
           	    </c:forEach>
             </div>
@@ -91,6 +94,22 @@
              </div>
             </div>  
 		</div>
+
+    <div id="Lightbox" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="lightbox-notice-title" class="modal-title">${note.title}</h3>
+        <span type="button" class="model-close pointer"  onclick="closeLightBox()" aria-label="Close">X</span>
+      </div>
+      <div class="modal-body">
+       <p id="lightbox-notice-summary" class=notice-summary>${note.summary}</p>
+      <!--<button class=sharebutton onclick="share('${note.title}', '${note.summary}')" style="width:60px; height:30px">share</button> --> 
+      </div>
+    </div>
+    </div>
+    </div>
+
         <div class="item row">
         	<h2>Members</h2>
         	<c:forEach var="member" items="${curgrp.members}"> 
@@ -104,6 +123,7 @@
         </div>
     </section>
     </div>
+    <script type="text/javascript" src="${contextPath}/resources/js/lightbox.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
