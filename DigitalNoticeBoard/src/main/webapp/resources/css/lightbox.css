@@ -25,6 +25,10 @@
     align-items: center;
   } 
 
+  .model-close{
+    color: rgb(56, 56, 56);
+  }
+
   .close {
     color: black;
     position: absolute;
