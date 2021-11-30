@@ -1,5 +1,6 @@
 package com.ualbany.digitalnoticeboard.controller;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -99,6 +100,8 @@ public class UserController {
     	List<Channel> channels = channelService.getAllPublicChannels();
     	mv.addObject("Channels", channels);
     	List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
+        Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
+
     	mv.addObject("ShortNotices", shortnotices);
         return mv;
     }
@@ -114,6 +117,8 @@ public class UserController {
          List<Channel> channels = channelService.getAllPublicChannels();
          mv.addObject("Channels", channels);
          List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
+         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
+
          mv.addObject("ShortNotices", shortnotices);
          
          return mv;
@@ -137,6 +142,7 @@ public class UserController {
     	List<Channel> channels = channelService.getAllPublicChannels();
     	mv.addObject("Channels", channels);
     	List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
+    	Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
     	mv.addObject("ShortNotices", shortnotices);
     	
     	return mv;

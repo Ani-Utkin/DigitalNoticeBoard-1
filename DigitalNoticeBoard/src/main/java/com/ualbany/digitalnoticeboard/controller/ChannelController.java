@@ -1,5 +1,6 @@
 package com.ualbany.digitalnoticeboard.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,7 @@ public class ChannelController extends BaseController{
         List<Channel> channels = channelService.getAllPublicChannels();
         mv.addObject("Channels", channels);
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
+        Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
         mv.addObject("ShortNotices", shortnotices);
         return mv;
     }

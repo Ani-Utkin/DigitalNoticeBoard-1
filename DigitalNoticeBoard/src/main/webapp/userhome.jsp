@@ -10,6 +10,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:url"           content="https://blackboard.albany.edu" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Digital notice board" />
+<meta property="og:description"   content="Check on new notice!" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
@@ -41,6 +45,7 @@
       </li>
       </c:forEach>
     </ul>
+    <div class="fb-share-button" data-href="https://blackboard.albany.edu" data-layout="button"></div>
     <div class="dropdown">
 	  <a class="btn btn-secondary dropdown-toggle" href="1" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		${user.username} 
@@ -81,9 +86,8 @@
 					  <button class="bookmarkbutto btn btn-primary" onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button>
 					  <button  class="btn btn-primary" onclick="openLightBox(); 
 						 showNoticeTitle('${note.title}'); 
-						 showNoticeSummary('${note.summary}');
-						 showNoticeCreateDate('${note.createdAt}');
-						 showNoticeExpireDate('${note.expirationDate}');" style="width:60px; height:30px">View</button>
+						 showNoticeSummary('${note.summary}');" style="width:60px; height:30px">View</button>
+					  <button class="btn btn-primary" style="width:60px; height:30px" onclick="share('${note.title}', '${note.summary}')">share</button>
 					   </div>
 					   </c:forEach>
 					  </div>
@@ -97,16 +101,15 @@
                <c:forEach var="shnote" items="${ShortNotices}"> 
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
-            		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
-            	   </div>
+            		<p>Expires in: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH" /> hrs</p>
+            	   <button class=sharebutton onclick="shareShort('${shnote.details}')" style="width:60px; height:30px">share</button>
+            	   </div>           	   
                </c:forEach>
              </div>
             </div>  
 		</div>
 
 		<div id="Lightbox" class="modal">
-			<!--<span class="close pointer" onclick="closeLightBox()">&times;</span>-->
-			<!--<div class="content">-->
 				<div class="modal-dialog">
 					<div class="modal-content">
 				<div class="modal-header">
@@ -115,11 +118,9 @@
 				</div>
 				<div class="modal-body">
 				 <p id="lightbox-notice-summary" class=notice-summary>${note.summary}</p>
-				 <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" type="date" /></p>
-				 <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" type="both" /></p>
 				 <button class=bookmarkbutton onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button> 
+				<!--<button class=sharebutton onclick="share('${note.title}', '${note.summary}')" style="width:60px; height:30px">share</button> --> 
 				</div>
-			 <!-- </div>-->
 			</div>
 			</div>
 		  </div>
@@ -147,5 +148,56 @@
   	</script>
   	<script type="text/javascript" src="${contextPath}/resources/js/eventshandlers.js">
   	</script>
+  	
+  	
+ 
+  /*test for share, not completed*/	
+  
+<script type="text/javascript">
+    function openDialog(t, s){undefined
+
+        workerId = window.open('share.jsp','','width=900,height=400');
+
+		workerId.onload = function() {
+			workerId.document.getElementById("notice-email-title").value = t;
+			workerId.document.getElementById("notice-email-content").value = s;
+		}
+
+        if(workerId!=undefined && workerId!=""){undefined
+           document.getElementById("leader").value = workerId;
+          }
+        }
+</script>
+   
+ <script>
+  function share(t, s) {
+    if (confirm("Share this notice?")) {
+    	openDialog(t, s);
+    } 
+    else {
+    }
+ }
+</script>
+
+ <script>
+  function shareShort(s){
+    if (confirm("Share this short notice?")) {
+    	openDialog("Short Notice", s);
+    } 
+    else {
+    }
+ }
+</script>   
+
+<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+	</script>
+  	
 </body>
 </html>

@@ -35,11 +35,14 @@
 		${user.username} 
 	  </a>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-	    <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notices</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkedNotices">BookMarked Notices</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notices</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkednotices">BookMarked Notices</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/newGroup">New Group</a>
+      <a class="dropdown-item" href="${contextPath}/signout">SignOut</a>
 	  </div>
 	</div>
   </div>
@@ -50,11 +53,11 @@
         <form:form method="POST" action="${contextPath}/${user.username}/notice/addShortNotice" modelAttribute="shortNoticeForm">
             <h2 class="channel-title">Add Short Notice</h2>
             <spring:bind path="details">
-                <form:input type="text" path="details" class="form-control" placeholder="Details"
+                <form:input path="details" class="form-control" placeholder="Details"
                                 autofocus="true"></form:input>
             </spring:bind>
             <spring:bind path="expirationTime">
-                <form:input type="time" path="expirationTime" class="form-control" id = "expDatePicker" placeholder="ExpirationTime"></form:input>
+                <form:input  path="expirationTime" class="form-control" id = "expDatePicker" placeholder="ExpirationTime"></form:input>
             </spring:bind>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
         </form:form>
@@ -65,11 +68,11 @@
     <script>
          $(function () {
              $("#expDatePicker").timepicker({
-            	    timeFormat: 'h:mm p',
+            	    timeFormat: 'HH:mm',
             	    interval: 60,
-            	    maxTime: '11:59pm',
-            	    defaultTime: '11',
-            	    startTime: '00:01',
+            	    maxTime: '23:59',
+            	    defaultTime: '01:00',
+            	    startTime: '01:00',
             	    dynamic: false,
             	    scrollbar: true});
          });

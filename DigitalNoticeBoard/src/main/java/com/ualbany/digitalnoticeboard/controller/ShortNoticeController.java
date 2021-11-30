@@ -3,6 +3,7 @@ package com.ualbany.digitalnoticeboard.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class ShortNoticeController extends BaseController {
 	@InitBinder("shortNoticeForm")
 	public void experitationDateBinding(WebDataBinder binder )
 	{
-	    SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm aa");
+	    SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm");
 	    binder.registerCustomEditor(Date.class,"expirationDate", new CustomDateEditor(simpleDateFormat,true));	   
 	}
 	
@@ -87,7 +88,11 @@ public class ShortNoticeController extends BaseController {
 		mv.addObject("user", user);
         List<Channel> channels = channelService.getAllPublicChannels();
         mv.addObject("Channels", channels);
+
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
+        
+        Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
+
         mv.addObject("ShortNotices", shortnotices);
         return mv;
     }
@@ -98,8 +103,10 @@ public class ShortNoticeController extends BaseController {
 		User user = userService.findByUsername(username);
 		shortNoticeService.deleteShortNoticeById(user, id);
 		List<Notice> notices = noticeService.getUserCreatedNotices(user);
+		
 		List<ShortNotice> shortnotices = shortNoticeService.getUserCreatedNotices(user);
 
+		Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
 		ModelAndView mv = new ModelAndView("addednotices");
 		mv.addObject("user", user);
 		mv.addObject("notices", notices);

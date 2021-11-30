@@ -3,21 +3,21 @@
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 5px;
     margin: 10px;
     width: 200px;
 }  
 
 .notice-header{
-    background-color: pink;
+    background-color: #BC8F8F;
     border-radius: 5px 5px 0px 0px;
     padding: 5px;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 .notice-body{
-	background-color: white;
+	background-color: #F5F1FD;
 	color:#302929;
 }
 
@@ -27,32 +27,29 @@
 	border-bottom:2px solid black;
 	border-right:2px solid black;
 	border-left:2px solid black;
-	background-color: #8c8c8c;
+	background-color: #F5F1FD;
 	padding-bottom:20px;
 	padding-top:10px;
-	color: white;
+	color: #F5F1FD;
 }
 
 .channel-body{
-	background-color: #8c8c8c;
+	background-color: #F5F1FD;
 	padding-left: 30px;
 	padding-right:30px;
-	color: white;
+	color: #F5F1FD;
 }
 
 .channel-title{
 	padding-left: 30px;
 	padding-right:30px;
-	padding-top:5px;
 	margin-bottom:5px;
-	border-top:2px solid black;
-	border-bottom:2px solid black;
-	background-color: #2e2e2e;
-	color: white;
+	background-color: #c48424;
+	color: black;
 }
 
 .shortnotice{
-	background-color: #f8f9fa;
+	background-color: #F5F1FD;
 	color: black;
 	border: 2px solid black;
 	-webkit-box-sizing: border-box;
@@ -81,28 +78,29 @@
     font-weight: 400;
     line-height: 66.5;
     color: #495057;
+    header:white;
 	border-top:2px solid black;
 	border-right:2px solid black;
 	border-left:2px solid black;
     background-color: #fff;
     background-clip: padding-box;
-    border: 9px solid #ced4da;
+    border: 9px solid black;
     border-radius: 0;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .short-notice-slider{
-	background-color:#8c8c8c;
+	background-color:#c48424;
 }
 .notice-card {
-    border: 2px solid black;
+    border: 2px solid white;
     -webkit-box-sizing: border-box;
-    background-color: white;
+    background-color: #f8f9fa;
     border-radius: 5px;
     margin: 10px;
 }
 .model-close{
-	color: #524f4f;
+	color: white;
     font-size: 20px;
     font-weight: bold;
     text-shadow: 0 1px 0 #fff;

@@ -1,5 +1,6 @@
 package com.ualbany.digitalnoticeboard.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,8 @@ public class NoticeController extends BaseController {
         List<Channel> channels = channelService.getAllPublicChannels();
         mv.addObject("Channels", channels);
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
+        Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
+
         mv.addObject("ShortNotices", shortnotices);
         return mv;
     }
@@ -71,6 +74,8 @@ public class NoticeController extends BaseController {
 		
         List<Notice> notices= noticeService.getUserCreatedNotices(user);
         List<ShortNotice> shortnotices = shortNoticeService.getUserCreatedNotices(user);
+        Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
+
 		
 		ModelAndView mv = new ModelAndView("addednotices");
 		mv.addObject("user", user);

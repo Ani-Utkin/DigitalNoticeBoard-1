@@ -37,12 +37,14 @@
 		${user.username} 
 	  </a>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-	    <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notices</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkedNotices">BookMarked Notices</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkednotices">BookMarked Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>
+		<a class="dropdown-item" href="${contextPath}/${user.username}/newGroup">New Group</a>
+		<a class="dropdown-item" href="${contextPath}/signout">SignOut</a>
 	  </div>
 	</div>
   </div>
@@ -94,7 +96,7 @@
 					<div class="row">
 						<div class="col-sm-3">
 							<h6 class="mb-0">Address</h6></div>
-							<div class="col-sm-9 text-secondary"> ${profile.address1},<br>${profile.address2}</div>
+							<div class="col-sm-9 text-secondary"> ${profile.address1}<br>${profile.address2}</div>
 						</div><hr>
 						<div class="row">
 							<div class="col-sm-12">

@@ -35,6 +35,8 @@ public class HomeController extends BaseController{
         List<Channel> channels = channelService.getAllPublicChannels();
         mv.addObject("Channels", channels);
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
+        Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
+
         mv.addObject("ShortNotices", shortnotices);
         return mv;
     }
@@ -48,6 +50,7 @@ public class HomeController extends BaseController{
         mv.addObject("Channels", channels);
         List<ShortNotice> shortnotices = shortNoticeService.getAllActiveNotices();
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
+        
         mv.addObject("ShortNotices", shortnotices);
         return mv;
     }

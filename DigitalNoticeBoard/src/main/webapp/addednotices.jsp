@@ -36,11 +36,14 @@
 		${user.username} 
 	  </a>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-	    <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkedNotices">BookMarked Notices</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notices</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkednotices">BookMarked Notices</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>
+      <a class="dropdown-item" href="${contextPath}/${user.username}/newGroup">New Group</a>
+      <a class="dropdown-item" href="${contextPath}/signout">SignOut</a>
 	  </div>
 	</div>
   </div>
@@ -81,7 +84,7 @@
         <li class="list-group-item">
  		      <p>${shnote.details}</p>
            <div>
- 	      	<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
+ 	      	<p>Expires in: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH" /> hrs</p>
            <button id="delete-snote" onclick="deleteShortNoticeRecord(${shnote.id})" class="btn btn-primary float-right">Delete</button>
            </div>
 

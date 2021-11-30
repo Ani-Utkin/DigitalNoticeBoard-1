@@ -35,7 +35,7 @@
                 </div>
             </spring:bind>          
         
-       <!--     <spring:bind path="role">
+          <spring:bind path="role">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
                     <form:select path="role" class="form-control" onchange="showLevelOfDegree(this.value)">
                             <form:option value="Student" label="Student" />
@@ -58,7 +58,7 @@
                             <form:option value="PHD" label="PHD" />
                     </form:select>
                 </div>
-            </spring:bind>-->
+            </spring:bind>
 
             <spring:bind path="password">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
