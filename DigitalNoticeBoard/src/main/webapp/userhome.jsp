@@ -56,7 +56,6 @@
 		<a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkednotices">BookMarked Notices</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
-		<a class="dropdown-item" href="${contextPath}/${user.username}/channel/add">Add Channel</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/newGroup">New Group</a>
 		<a class="dropdown-item" href="${contextPath}/${user.username}/pendinginvite">Current Invitations</a>
 		<a class="dropdown-item" href="${contextPath}/signout">SignOut</a>

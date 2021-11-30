@@ -95,6 +95,9 @@ public class UserController {
         }
     	User user = userService.findByUsername(userForm.getUsername());
     	ModelAndView mv = new ModelAndView("userhome");
+    	if(user.getRoles().get(0).getRoleType() == UserRoleType.ADMIN) {
+    		mv = new ModelAndView("adminhome");
+    	}
     	mv.addObject("user", user);
     	List<Channel> channels = channelService.getChannelsWithValidNotices();
     	mv.addObject("Channels", channels);

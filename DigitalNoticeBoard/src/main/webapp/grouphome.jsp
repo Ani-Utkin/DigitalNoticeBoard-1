@@ -109,7 +109,6 @@
     </div>
     </div>
     </div>
-
         <div class="item row">
         	<h2>Members</h2>
         	<c:forEach var="member" items="${curgrp.members}"> 
