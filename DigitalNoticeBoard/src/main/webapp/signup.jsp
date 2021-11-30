@@ -34,31 +34,6 @@
                     <form:errors path="email"></form:errors>
                 </div>
             </spring:bind>          
-        
-          <spring:bind path="role">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:select path="role" class="form-control" onchange="showLevelOfDegree(this.value)">
-                            <form:option value="Student" label="Student" />
-                            <form:option value="Faculty" label="Faculty" />
-                    </form:select>
-                </div>
-            </spring:bind>
-            <spring:bind path="department">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="department" class="form-control" placeholder="department"></form:input>
-                    <form:errors path="department"></form:errors>
-                </div>
-            </spring:bind>
-       
-            <spring:bind path="levelOfDegree">
-                <div id="levelOfDegree" class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:select path="levelOfDegree" class="form-control">
-                            <form:option value="Graduate" label="Graduate" />
-                            <form:option value="Undergraduate" label="Undergraduate" />
-                            <form:option value="PHD" label="PHD" />
-                    </form:select>
-                </div>
-            </spring:bind>
 
             <spring:bind path="password">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
