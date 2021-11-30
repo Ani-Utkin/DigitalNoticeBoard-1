@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:url"           content="https://blackboard.albany.edu" />
+<meta property="og:url"           content="http://ec2-18-217-243-133.us-east-2.compute.amazonaws.com:8086/" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="Digital notice board" />
 <meta property="og:description"   content="Check on new notice!" />
@@ -45,7 +45,7 @@
       </li>
       </c:forEach>
     </ul>
-    <div class="fb-share-button" data-href="https://blackboard.albany.edu" data-layout="button"></div>
+    <div class="fb-share-button" data-href="http://ec2-18-217-243-133.us-east-2.compute.amazonaws.com:8086/" data-layout="button"></div>
     <div class="dropdown">
 	  <a class="btn btn-secondary dropdown-toggle" href="1" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		${user.username} 
