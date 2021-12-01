@@ -126,6 +126,7 @@
             		<c:set var = "role" scope = "session" value = "${member.role}"/>
             		<c:if test="${role != 'ADMIN'}" >
             		<button class="btn btn-primary" style="width:60px; height:30px" onclick="promote('${member.id}')">promote</button>
+            		<button class="btn btn-primary" style="width:60px; height:30px" onclick="remove('${member.id}')">remove</button>
             		</c:if>
            	   	 </div>
             	</div>   
@@ -154,6 +155,19 @@
 		        }
 		    })
 		};
+		
+		function remove(id){ 
+			  $.ajax({
+			        url: contextPath+"/"+userName+"/"+grpId+"/remove/"+id,
+			        method: 'GET',
+			        success: function () {
+			            window.location.reload();
+			        },
+			        error: function (error) {
+			            alert(error);
+			        }
+			    })
+			};
 		
 		function deletenotice(id){
 			  

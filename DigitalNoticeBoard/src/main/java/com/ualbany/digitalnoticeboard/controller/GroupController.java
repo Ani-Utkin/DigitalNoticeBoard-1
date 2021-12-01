@@ -319,4 +319,14 @@ public class GroupController extends BaseController{
 		groupmemberService.save(member);
 		return  showGroupPage(grpId, user);
 	}
+	
+	@GetMapping("/{username}/{grpId}/remove/{id}")
+	public ModelAndView deletemember(@PathVariable final String username, @PathVariable final Long grpId, 
+			@PathVariable final Long id, 
+			Model model) {
+		User user = userService.findByUsername(username);
+		Optional<GroupMember> member = groupmemberService.getById(id);
+		groupmemberService.deletemember(member);
+		return  showGroupPage(grpId, user);
+	}
 }
