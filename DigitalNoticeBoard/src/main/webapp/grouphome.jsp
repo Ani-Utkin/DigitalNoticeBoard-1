@@ -80,10 +80,10 @@
 						       showNoticeSummary('${note.summary}');" style="width:60px; height:30px">View</button>
 				  <c:set var = "role" scope = "session" value = "${usergrprole}"/>
 	           	  <c:if test="${role == 'ADMIN'}" >
-	           		<button class="btn btn-primary" style="width:60px; height:30px" onclick="deletenotice'${note.id}')">promote</button>
+	           		<button class="btn btn-primary" style="width:60px; height:30px" onclick="deletenotice('${note.id}')">delete</button>
 	           	  </c:if>
           	    </div>
-          	    </c:forEach>
+          	   </c:forEach>
             </div>
 	    	</div>
              <div class="col-sm-3 shortnoticeHeight">
@@ -95,7 +95,7 @@
             		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
             		<c:set var = "role" scope = "session" value = "${usergrprole}"/>
 		           	  <c:if test="${role == 'ADMIN'}" >
-		           		<button class="btn btn-primary" style="width:60px; height:30px" onclick="deleteshortnotice'${shnote.id}')">promote</button>
+		           		<button class="btn btn-primary" style="width:60px; height:30px" onclick="deleteshortnotice('${shnote.id}')">delete</button>
 		           	  </c:if>
             	  </div>
                </c:forEach>
@@ -179,7 +179,7 @@
 		  
 		  if(confirm("Are you sure you want to delete the Short Notice?")){
 		    $.ajax({
-		      url: contextPath+"/"+userName+"/"+grpId+"deleteshortnotice/"+id,
+		      url: contextPath+"/"+userName+"/"+grpId+"/deleteshortnotice/"+id,
 		      method: 'GET',
 		      success: function () {
 		          //alert('record has been deleted');

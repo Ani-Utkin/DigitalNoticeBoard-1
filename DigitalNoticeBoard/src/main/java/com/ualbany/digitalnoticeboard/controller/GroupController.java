@@ -127,10 +127,11 @@ public class GroupController extends BaseController{
 		Group group = groupService.getById(grpId).get();
 		List<Group> groups = groupService.getUserGroups(user);
 		GroupMember member = groupmemberService.getMemberByUserAndGroup(user, group).get();
-		ModelAndView mv = new ModelAndView("grouphome");
-		if(member.getRole() == GroupMemberRole.MEMBER)
+		ModelAndView mv = new ModelAndView("grouphomemember");
+		if(member.getRole() == GroupMemberRole.ADMIN)
 		{
-			mv = new ModelAndView("grouphomemember");
+			mv = new ModelAndView("grouphome");
+			mv.addObject("usergrprole", GroupMemberRole.ADMIN);
 		}
         mv.addObject("user", user);
         mv.addObject("groups", groups);
