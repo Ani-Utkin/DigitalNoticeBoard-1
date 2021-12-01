@@ -69,7 +69,7 @@
                  <c:forEach var="shnote" items="${ShortNotices}"> 
                    <div class="shortnotice">
               		<p>${shnote.details}</p>
-              		<p>Expires in: <fmt:formatDate value="${shnote.expirationDate}"  type="time" pattern="HH"/> hrs</p>
+              		<p>Expires in: <fmt:formatDate value="${shnote.expirationDate}"  type="time" pattern="HH:mm"/> hrs</p>
               	   </div>
                  </c:forEach>
                </div>

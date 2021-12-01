@@ -86,13 +86,23 @@ public class NoticeController extends BaseController {
 		User user = userService.findByUsername(username);
         return getNoticeList(user);
     }
+	
+	@GetMapping("/{username}/bookmarkednotices")
+    public ModelAndView getBookmarkedNoticesGetRequest(@PathVariable final String username, Model model) {
+		User user = userService.findByUsername(username);
+		ModelAndView mv = new ModelAndView("bookmarkednotices");
+		mv.addObject("user", user);
+		mv.addObject("notices", user.getBookmarkednotices()); 
+		 List<Group> groups = groupService.getUserGroups(user);
+	    	mv.addObject("groups", groups);
+        return mv;
+    }
+	
 	public ModelAndView getNoticeList(User user) {
 		
         List<Notice> notices= noticeService.getUserCreatedNotices(user);
         List<ShortNotice> shortnotices = shortNoticeService.getUserCreatedNotices(user);
         Collections.sort(shortnotices, (o1, o2) -> o1.getExpirationDate().compareTo(o2.getExpirationDate()));
-
-		
 		ModelAndView mv = new ModelAndView("addednotices");
 		mv.addObject("user", user);
 		mv.addObject("notices", notices);      

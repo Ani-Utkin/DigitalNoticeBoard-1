@@ -36,9 +36,6 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-       <li class="nav-item">
-        <a class="nav-link"  href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
-      </li>
       <c:forEach var="grp" items="${groups}">
       <li class="nav-item">
         <a class="nav-link" href="${contextPath}/${user.username}/group/${grp.id}">${grp.name}</a>
@@ -101,7 +98,7 @@
                <c:forEach var="shnote" items="${ShortNotices}"> 
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
-            		<p>Expires in: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH" /> hrs</p>
+            		<p>Expires in: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /> hrs</p>
             	   <button class=sharebutton onclick="shareShort('${shnote.details}')" style="width:60px; height:30px">share</button>
             	   </div>           	   
                </c:forEach>
@@ -128,11 +125,11 @@
 
     </section>
     </div>
-	<script type="text/javascript" src="${contextPath}/resources/js/lightbox.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/lightbox.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
       $('.notice-slider').slick({

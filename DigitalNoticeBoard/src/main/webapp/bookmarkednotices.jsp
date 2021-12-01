@@ -42,7 +42,6 @@
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       <a class="dropdown-item" href="${contextPath}/${user.username}/profile">Profile</a>
       <a class="dropdown-item" href="${contextPath}/${user.username}/notice/addedNotices">Added Notices</a>
-      <a class="dropdown-item" href="${contextPath}/${user.username}/bookmarkednotices">BookMarked Notices</a>
       <a class="dropdown-item" href="${contextPath}/${user.username}/notice/addNotice">Add Notice</a>
       <a class="dropdown-item" href="${contextPath}/${user.username}/notice/addShortNotice">Add Short Notice</a>
       <a class="dropdown-item" href="${contextPath}/${user.username}/newGroup">New Group</a>
@@ -53,37 +52,26 @@
   </div>
 </nav>
 <body>
-<div class="container">
-
-        <form:form method="POST" action="${contextPath}/${user.username}/notice/addNotice" modelAttribute="noticeForm">
-            <h2 class="channel-title">Add Notice</h2>
-            <spring:bind path="title">
-                <form:input type="text" path="title" class="form-control" placeholder="Title"
-                                autofocus="true"></form:input>
-            </spring:bind>
-			<spring:bind path="summary">
-                <form:input type="text" path="summary" class="form-control" placeholder="Summary"
-                                autofocus="true"></form:input>
-            </spring:bind>
-			 <spring:bind path="details">
-                <form:input type="text" path="details" class="form-control" placeholder="Details"></form:input>
-            </spring:bind>
-            <spring:bind path="expirationDate">
-                <form:input type="text" path="expirationDate" class="form-control" id = "expDatePicker" placeholder="ExpirationDate"></form:input>
-            </spring:bind>
-            <spring:bind path="channels">
-                <form:select multiple="true" path="channels" class="form-control"  items="${channels}" placeholder="channels"/>
-            </spring:bind>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
-        </form:form>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-         $(function () {
-             $("#expDatePicker").datepicker();
-         });
-     </script>
+	<div class="container">
+	  <div class="row">
+	    <c:forEach var="note" items="${notices}">   
+	      <div class="col-ms-4">
+	      <div class="card notice" style="width: 25rem;">
+	        <h3 class="card-title bg-primary">${note.title}</h3>
+	          <div class="card-body">      
+	          <p class=notice-summary>${note.summary}</p>
+	          <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
+	          <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
+	          <button id="delete-button" onclick="deleteRecord(${note.id})" class="btn btn-primary">view</button>
+	        </div>
+	      </div>
+	    </div>
+	 
+	    </c:forEach>  
+	  </div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${contextPath}/resources/js/lightbox.js"></script>
 </body>
 </html>
