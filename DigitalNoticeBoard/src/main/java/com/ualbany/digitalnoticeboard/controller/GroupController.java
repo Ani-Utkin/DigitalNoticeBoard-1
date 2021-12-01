@@ -126,7 +126,12 @@ public class GroupController extends BaseController{
 	private ModelAndView showGroupPage(final Long grpId, User user) {
 		Group group = groupService.getById(grpId).get();
 		List<Group> groups = groupService.getUserGroups(user);
-	    ModelAndView mv = new ModelAndView("grouphome");
+		GroupMember member = groupmemberService.getMemberByUserAndGroup(user, group).get();
+		ModelAndView mv = new ModelAndView("grouphome");
+		if(member.getRole() == GroupMemberRole.MEMBER)
+		{
+			mv = new ModelAndView("grouphomemember");
+		}
         mv.addObject("user", user);
         mv.addObject("groups", groups);
     	mv.addObject("curgrp", group);
@@ -298,5 +303,19 @@ public class GroupController extends BaseController{
         List<Group> groups = groupService.getUserGroups(user);
     	mv.addObject("groups", groups);
         return mv;
+	}
+	
+	@GetMapping("/{username}/{grpId}/promote/{id}")
+	public ModelAndView promotemember(@PathVariable final String username, @PathVariable final Long grpId, 
+			@PathVariable final Long id, 
+			Model model) {
+		User user = userService.findByUsername(username);
+		GroupMember member = groupmemberService.getById(id).get();
+		if(member.getRole()== GroupMemberRole.MEMBER)
+		{
+			member.setRole(GroupMemberRole.ADMIN);
+		}
+		groupmemberService.save(member);
+		return  showGroupPage(grpId, user);
 	}
 }

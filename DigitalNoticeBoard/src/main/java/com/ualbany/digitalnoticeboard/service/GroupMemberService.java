@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.ualbany.digitalnoticeboard.model.Group;
 import com.ualbany.digitalnoticeboard.model.GroupMember;
-import com.ualbany.digitalnoticeboard.model.GroupNotice;
 import com.ualbany.digitalnoticeboard.model.User;
 import com.ualbany.digitalnoticeboard.repository.GroupMemberRepository;
 
@@ -36,9 +35,14 @@ public class GroupMemberService {
 		return repository.findByUserAndGroup(user, group);
 	}
 	
-	 public void deletemember(Optional<GroupMember> member) {
+	public void deletemember(Optional<GroupMember> member) {
     	if(member.isPresent()) {
     		repository.delete(member.get());    		
     	}
     }
+	 
+	public Optional<GroupMember> getById(Long id){
+		return repository.findById(id);
+	}
+			
 }

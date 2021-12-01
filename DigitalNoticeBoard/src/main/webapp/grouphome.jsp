@@ -78,6 +78,10 @@
                  <button  class="btn btn-primary" onclick="openLightBox(); 
 						       showNoticeTitle('${note.title}'); 
 						       showNoticeSummary('${note.summary}');" style="width:60px; height:30px">View</button>
+				  <c:set var = "role" scope = "session" value = "${usergrprole}"/>
+	           	  <c:if test="${role == 'ADMIN'}" >
+	           		<button class="btn btn-primary" style="width:60px; height:30px" onclick="deletenotice'${note.id}')">promote</button>
+	           	  </c:if>
           	    </div>
           	    </c:forEach>
             </div>
@@ -89,7 +93,11 @@
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
             		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
-            	   </div>
+            		<c:set var = "role" scope = "session" value = "${usergrprole}"/>
+		           	  <c:if test="${role == 'ADMIN'}" >
+		           		<button class="btn btn-primary" style="width:60px; height:30px" onclick="deleteshortnotice'${shnote.id}')">promote</button>
+		           	  </c:if>
+            	  </div>
                </c:forEach>
              </div>
             </div>  
@@ -104,8 +112,7 @@
       </div>
       <div class="modal-body">
        <p id="lightbox-notice-summary" class=notice-summary>${note.summary}</p>
-      <!--<button class=sharebutton onclick="share('${note.title}', '${note.summary}')" style="width:60px; height:30px">share</button> --> 
-      </div>
+     </div>
     </div>
     </div>
     </div>
@@ -116,7 +123,11 @@
                  <div class="shortnotice">
             		<p>${member.user.email}</p>
             		<p>${member.role}</p>
-            	   </div>
+            		<c:set var = "role" scope = "session" value = "${member.role}"/>
+            		<c:if test="${role != 'ADMIN'}" >
+            		<button class="btn btn-primary" style="width:60px; height:30px" onclick="promote('${member.id}')">promote</button>
+            		</c:if>
+           	   	 </div>
             	</div>   
              </c:forEach>
         </div>
@@ -127,5 +138,65 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+	  var contextPath="${contextPath}";
+	  var userName="${user.username}";
+	  var grpId =  "${curgrp.id}";
+		function promote(id){ 
+		  $.ajax({
+		        url: contextPath+"/"+userName+"/"+grpId+"/promote/"+id,
+		        method: 'GET',
+		        success: function () {
+		            window.location.reload();
+		        },
+		        error: function (error) {
+		            alert(error);
+		        }
+		    })
+		};
+		
+		function deletenotice(id){
+			  
+		    if(confirm("Are you sure you want to delete the Notice?")){
+		      $.ajax({
+		        url: contextPath+"/"+userName+"/"+grpId+"/deletenotice/"+id,
+		        method: 'GET',
+		        success: function () {
+		            window.location.reload();
+		        },
+		        error: function (error) {
+		            alert(error);
+		        }
+		    })
+
+		    }
+		    else{
+		      //alert("no");
+		        return false;
+		    }
+		};
+		function deleteshortnotice(id){
+		  
+		  if(confirm("Are you sure you want to delete the Short Notice?")){
+		    $.ajax({
+		      url: contextPath+"/"+userName+"/"+grpId+"deleteshortnotice/"+id,
+		      method: 'GET',
+		      success: function () {
+		          //alert('record has been deleted');
+		          //getAllBooks();
+		          window.location.reload();
+		      },
+		      error: function (error) {
+		          alert(error);
+		      }
+		  })
+
+		  }
+		  else{
+		    //alert("no");
+		      return false;
+		  }
+		};
+	</script>
 </body>
 </html>
