@@ -21,7 +21,7 @@
         <form:form method="POST" action="${contextPath}/signup" modelAttribute="userForm" class="form-signin">
             <h2 class="form-signin-heading">Create your account</h2>
             <spring:bind path="username">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
+                <div class=" errorblock form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="text" path="username" class="form-control" placeholder="Username"
                                 autofocus="true"></form:input>
                     <form:errors path="username"></form:errors>
@@ -29,21 +29,21 @@
             </spring:bind>
 
 			 <spring:bind path="email">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
+                <div class="errorblock form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="text" path="email" name="email" class="form-control" placeholder="Email"></form:input>
                     <form:errors path="email"></form:errors>
                 </div>
             </spring:bind>          
 
             <spring:bind path="password">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
+                <div class="errorblock form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
                     <form:errors path="password"></form:errors>
                 </div>
             </spring:bind>
             
             <spring:bind path="passwordConfirm">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
+                <div class="errorblock form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="password" path="passwordConfirm" class="form-control"
                                 placeholder="Confirm your password"></form:input>
                     <form:errors path="passwordConfirm"></form:errors>
@@ -66,6 +66,14 @@
            document.getElementById("levelOfDegree").style.display='block';}
         }
     </script>
-    
+      <style>
+  .errorblock span{color: #FF0000;
+    font-size: 14px;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    margin-top: 5px;margin-left:45px!important;}
+    .form-signin a,.form-signin-heading{color:#000000!important;}
+  </style>
   </body>
 </html>

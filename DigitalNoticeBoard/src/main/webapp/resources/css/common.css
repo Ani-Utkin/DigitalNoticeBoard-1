@@ -198,8 +198,13 @@ header {
     border-radius: 5px;
 }
 
+.navbar{background-color:#4e70f9!important;padding: 5px 0px !important;}
+.navbar a{color: white!important;}
 
-    
+
+#delete-button,.slick-slide button, .card-body button,.card-body .btn, .btn-primary {background: #4e70f9 !important;border-color: #4e70f9 !important;}
+a.dropdown-item{color:#000000!important;}
+   
   
 
 
@@ -212,3 +217,4 @@ header {
     background-position: -1190px;
   }
 }
+

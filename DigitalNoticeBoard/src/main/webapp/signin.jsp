@@ -27,7 +27,7 @@
                 </div>
             </spring:bind>
             <spring:bind path="password">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
+                <div class="passblock form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
                     <form:errors path="password"></form:errors>
                 </div>
@@ -41,5 +41,15 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+  <style>
+  .passblock span{color: #FF0000;
+    font-size: 14px;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    margin-top: 5px;margin-left:45px!important;}
+    .form-signin a,.form-signin-heading{color:#000000!important;}
+  </style>
+  
   </body>
 </html>
