@@ -74,7 +74,7 @@
          $(function () {
              $("#expDatePicker").timepicker({
             	    timeFormat: 'HH:mm',
-            	    interval: 60,
+            	    interval: 5,
             	    maxTime: '23:59',
             	    defaultTime: '01:00',
             	    startTime: '01:00',
