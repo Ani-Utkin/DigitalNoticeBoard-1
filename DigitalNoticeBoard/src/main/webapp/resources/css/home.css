@@ -82,7 +82,7 @@
 }
 
 .shortnoticeHeight{
-	/**height: 2064px;*/
+	//*height: 2064px;*//
 	height:auto;
 }
 
@@ -150,7 +150,7 @@
 	font-weight:bold;
   }
 
-.btn-primary, .card-body button,.card-body .btn, .btn-primary {background: #4e70f9 !important;border-color: #4e70f9 !important;}
+.btn-primary, .card-body button,.card-body .btn, .btn-primary, .sharebutton {background: #4e70f9 !important;border-color: #4e70f9 !important;}
 
 a.dropdown-item{color:#000000!important;}
 #dropdownMenuLink,.dropdown-item{font-size:1.5rem;}
