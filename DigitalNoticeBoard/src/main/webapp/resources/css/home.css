@@ -82,7 +82,8 @@
 }
 
 .shortnoticeHeight{
-	height: 2064px;
+	/**height: 2064px;*/
+	height:auto;
 }
 
 .form-control-shortnotice {

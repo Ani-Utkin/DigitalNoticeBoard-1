@@ -88,17 +88,33 @@
              </div>
             </div>  
 		</div>
+		
         <div class="item row">
-        	<h2>Members</h2>
+        	<h2 class="channel-title" style="height:50px;margin-bottom:15px;width:105px;margin-left:20px;">Members</h2>
+        	<div style="width:100%;margin-bottom:15px;"></div>
         	<c:forEach var="member" items="${curgrp.members}"> 
-        	   <div class="col-sm-3">
+           	
+            	
+            	<div class="col-sm-3">
+              <div class="short-notice-slider">
+             
+                
                  <div class="shortnotice">
-            		<p>${member.user.email}</p>
+                 <p>${member.user.email}</p>
             		<p>${member.role}</p>
             	   </div>
-            	</div>   
+               
+             </div>
+            </div>
+            	
+            	
+            	
+            	
+            	
+            	  
              </c:forEach>
         </div>
+        
     </section>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
