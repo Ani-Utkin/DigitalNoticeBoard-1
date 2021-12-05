@@ -68,6 +68,7 @@
             </spring:bind>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
         </form:form>
+        <p>Note: choose time after the current time</p>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
@@ -77,9 +78,9 @@
              $("#expDatePicker").timepicker({
             	    timeFormat: 'HH:mm',
             	    interval: 5,
-            	    maxTime: '23:59',
-            	    defaultTime: '01:00',
-            	    startTime: '01:00',
+            	    //maxTime: '23:59',
+            	    defaultTime: null,
+            	    startTime: '00:00',
             	    dynamic: false,
             	    scrollbar: true});
          });
