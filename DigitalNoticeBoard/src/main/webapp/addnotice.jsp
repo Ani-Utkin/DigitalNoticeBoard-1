@@ -66,10 +66,10 @@
 			<spring:bind path="summary">
                 <form:input type="text" path="summary" class="form-control" placeholder="Summary"
                                 autofocus="true"></form:input>
-            </spring:bind>
+           <!-- </spring:bind>
 			 <spring:bind path="details">
                 <form:input type="text" path="details" class="form-control" placeholder="Details"></form:input>
-            </spring:bind>
+            </spring:bind>--->
             <spring:bind path="expirationDate">
                 <form:input type="text" path="expirationDate" class="form-control" id = "expDatePicker" placeholder="ExpirationDate"></form:input>
             </spring:bind>
