@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/resources/**", "/signup","/verify-email","/signin",
+                .antMatchers("/resources/**", "/signup","/verify-email","/signin","/resetpassword",
                 		"/home","/Profile.jsp","/home.jsp","/userhome.jsp","/mynoticetab","/postShortnotice","/index.html","/jquery.min.js","/addnotice.jsp",
                 		"/css/style.css","/css/bootstrap.min.css","/css/common.css","/**","/addchannel.jsp").permitAll()
                 .anyRequest().authenticated()

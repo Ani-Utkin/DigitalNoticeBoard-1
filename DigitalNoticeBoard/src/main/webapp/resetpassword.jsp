@@ -7,18 +7,20 @@
 <html lang="en">
   <head>
       <meta charset="utf-8">
-      <title>SignIn</title>
+      <title>Reset Password</title>
 
       <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
       <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+      
+      
   </head>
 
   <body background="https://i.pinimg.com/564x/03/1d/75/031d75d9a633a918c30d91b82c255f97.jpg">
+      <div class="container">
 
-    <div class="container">
-
-        <form:form method="POST" action="${contextPath}/signin" modelAttribute="userForm" class="form-signin">
-            <h2 class="form-signin-heading">Sign In</h2>
+        <form:form method="POST" action="${contextPath}/resetpassword" modelAttribute="userForm" class="form-signin">
+            <h2 class="form-signin-heading">Reset Password</h2>
+            
             <spring:bind path="username">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="text" path="username" class="form-control" placeholder="Username"
@@ -26,30 +28,20 @@
                     <form:errors path="username"></form:errors>
                 </div>
             </spring:bind>
-            <spring:bind path="password">
-                <div class="passblock form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
-                    <form:errors path="password"></form:errors>
+
+			<spring:bind path="email">
+                <div class="form-group ${status.error ? 'has-error' : ''}">
+                    <form:input type="text" path="email" name="email" class="form-control" placeholder="Email"></form:input>
+                    <form:errors path="email"></form:errors>
                 </div>
-            </spring:bind>
+            </spring:bind>          
+
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-            <h4 class="text-center"><a href="${contextPath}/signup">Sign Up</a></h4>
-            <h4 class="text-center"><a href="${contextPath}/resetpassword">Reset Password</a></h4>
         </form:form>
 
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-  <style>
-  .passblock span{color: #FF0000;
-    font-size: 14px;
-    padding: 10px;
-    display: block;
-    border-radius: 5px;
-    margin-top: 5px;margin-left:45px!important;}
-    .form-signin a,.form-signin-heading{color:#000000!important;}
-  </style>
-  
   </body>
 </html>

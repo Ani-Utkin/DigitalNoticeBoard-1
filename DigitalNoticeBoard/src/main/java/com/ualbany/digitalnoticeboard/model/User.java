@@ -32,6 +32,8 @@ public class User extends Persistable {
 	
 	@Transient//this field will not be saved in the database.
     private String passwordConfirm;
+	@Transient//this field will not be saved in the database.
+    private boolean resetPasswordStatus=false;
 
     private List<Role> roles = new ArrayList<Role>();
 
@@ -158,6 +160,13 @@ public class User extends Persistable {
 	public void setLevelOfDegree(String levelOfDegree) {
 		this.levelOfDegree = levelOfDegree;
 	}
-	
-	
+
+	public boolean isResetPasswordStatus() {
+		return resetPasswordStatus;
+	}
+
+	public void setResetPasswordStatus(boolean resetPasswordStatus) {
+		this.resetPasswordStatus = resetPasswordStatus;
+	}
+
 }

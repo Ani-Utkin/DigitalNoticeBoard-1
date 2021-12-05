@@ -47,7 +47,7 @@ public class VerificationTokenService {
 
         sendingMailService.sendVerificationMail(email, verificationToken.getToken());
     }
-
+    
     public ResponseEntity<String> verifyEmail(String token){
         List<VerificationToken> verificationTokens = verificationTokenRepository.findByToken(token);
         if (verificationTokens.isEmpty()) {
@@ -66,4 +66,48 @@ public class VerificationTokenService {
 
         return ResponseEntity.ok("You have successfully verified your email address.");
     }
+    
+    public boolean resetPassword(String email){
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+            user = new User();
+            user.setEmail(email);
+            userRepository.save(user);
+        } 
+        
+        List<VerificationToken> verificationTokens = verificationTokenRepository.findByUserEmail(email);
+        VerificationToken verificationToken;
+        if (verificationTokens.isEmpty()) {
+            verificationToken = new VerificationToken();
+            verificationToken.setUser(user);
+            verificationTokenRepository.save(verificationToken);
+            System.out.println("Created NEW Verification TOKEN");
+        } else {
+        	System.out.println("Found tokens ::::: "+verificationTokens.size());
+            verificationToken = verificationTokens.get(0);
+        }
+
+        return sendingMailService.sendResetMail(email, user.getUsername(), verificationToken.getToken());
+    }
+    
+    public String resetPasswordUsingToken(String token, String username){
+        List<VerificationToken> verificationTokens = verificationTokenRepository.findByToken(token);
+        if (verificationTokens.isEmpty()) {
+            return "Invalid token.";
+        }
+
+        VerificationToken verificationToken = verificationTokens.get(0);
+        if (verificationToken.getExpiredDateTime().isBefore(LocalDateTime.now())) {
+        	verificationTokenRepository.delete(verificationToken);
+            return "Expired token.";
+        }
+
+        verificationToken.setConfirmedDateTime(LocalDateTime.now());
+        verificationToken.setStatus(VerificationToken.STATUS_VERIFIED);
+        verificationToken.getUser().setIsActive(true);
+        verificationTokenRepository.save(verificationToken);
+
+        return "Proceed";
+    }
+
 }
