@@ -37,6 +37,7 @@
             </spring:bind>          
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+            <h3 class="text-center"><a href="${contextPath}/signup">Don't have an account ? Sign Up Here! </a></h3>
         </form:form>
 
     </div>
