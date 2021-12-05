@@ -26,7 +26,7 @@ public class ResetPasswordValidator implements Validator {
 			errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
 		} else if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
 			errors.rejectValue("password", "Size.userForm.password");
-		} else if (!user.getUsername().trim().isBlank()) {
+		} else if (!user.getUsername().trim().isEmpty()) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
 		}
 	}

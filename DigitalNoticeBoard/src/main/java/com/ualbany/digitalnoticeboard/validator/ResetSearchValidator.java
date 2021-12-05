@@ -19,9 +19,9 @@ public class ResetSearchValidator implements Validator {
 	public void validate(Object o, Errors errors) {
 		User user = (User) o;
 		
-		if (user.getUsername().isBlank() && user.getEmail().isBlank()) {
+		if (user.getUsername().isEmpty() && user.getEmail().isEmpty()) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "MinimumSearchCriteria");
-		} else if (user.getUsername().isBlank() && (!user.getEmail().isBlank()) && (!user.getEmail().endsWith("@albany.edu"))) {
+		} else if (user.getUsername().isEmpty() && (!user.getEmail().isEmpty()) && (!user.getEmail().endsWith("@albany.edu"))) {
 			errors.rejectValue("email", "NotvalidEmail.userFrom.email");
 		}
 	}

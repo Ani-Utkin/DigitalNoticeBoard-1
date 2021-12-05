@@ -17,6 +17,7 @@
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/home.css" rel="stylesheet">
+<link href="${contextPath}/resources/css/editform.css" rel="stylesheet">
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">
@@ -56,32 +57,72 @@
 </nav>
 <body>
     <div class="maincontent">
-	<section id="">
+	<div id="form-container">
 		<form:form method="POST" action="${contextPath}/${user.username}/profile/edit" modelAttribute="profileForm">
             <h2 class="channel-title">Edit profile</h2>
-            <spring:bind path="firstName">
-                <form:input type="text" path="firstName" class="form-control" placeholder="${profile.firstName}"
-                                autofocus="true"></form:input>
-            </spring:bind>
-			<spring:bind path="lastName">
-                <form:input type="text" path="lastName" class="form-control" placeholder="${profile.lastName}"
-                                autofocus="true"></form:input>
-            </spring:bind>
-			 <spring:bind path="address1">
-                <form:input type="text" path="address1" class="form-control" placeholder="${profile.address1}"></form:input>
-            </spring:bind>
-            <spring:bind path="address2">
-                <form:input type="text" path="address2" class="form-control" placeholder="${profile.address2}"></form:input>
-            </spring:bind>
-             <spring:bind path="phone">
-                <form:input type="text" path="phone" class="form-control" placeholder= "${profile.phone}"></form:input>
-            </spring:bind>
+            <div class="row"> 
+            	<div class="col-25">
+			      <label for="fname">First Name</label>
+			    </div>
+			    <div class="col-75">
+		            <spring:bind path="firstName">
+		                <form:input type="text" path="firstName" id="fname" class="form-control" placeholder="${profile.firstName}"
+		                                autofocus="true"></form:input>
+		            </spring:bind>
+	            </div>
+            </div>
+            <div class="row">
+	            <div class="col-25">
+				      <label for="lname">Last Name</label>
+				</div>
+				<div class="col-75">
+		            <spring:bind path="lastName">
+		                <form:input type="text" path="lastName" id="lname" class="form-control" placeholder="${profile.lastName}"
+		                                autofocus="true"></form:input>
+		            </spring:bind> 
+	            </div>
+            </div>
+			<div class="row">
+			 	<div class="col-25">
+				      <label for="addr1">Address Line1</label>
+				</div>
+				<div class="col-75">
+				 <spring:bind path="address1">
+	                <form:input type="text" path="address1" id="addr1" class="form-control" placeholder="${profile.address1}"></form:input>
+	            </spring:bind>
+            	</div>
+            </div>
+            <div class="row">
+			 	<div class="col-25">
+			 		<label for="addr2">Address Line2</label>
+				</div>
+				<div class="col-75">
+		            <spring:bind path="address2">
+		                <form:input type="text" path="address2" id="addr2" class="form-control" placeholder="${profile.address2}"></form:input>
+		            </spring:bind>
+	            </div>
+            </div>
+            <div class="row">
+			 	<div class="col-25">
+			 		<label for="ph">Phone</label>
+				</div>
+				<div class="col-75">
+	             <spring:bind path="phone">
+	                <form:input type="text" path="phone" id="ph" class="form-control" placeholder= "${profile.phone}"></form:input>
+	            </spring:bind>
+	            </div>
+            </div>
+            <div class="row" style="display:none">
             <spring:bind path="image">
                 <form:select multiple="true" path="image" class="form-control" placeholder="${profile.image}"/>
             </spring:bind>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+            </div>
+            <div class="row">
+		    	<button class="submit-button" type="submit">Update</button>
+		  	</div>
+            
         	</form:form>
-    </section>
+    </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

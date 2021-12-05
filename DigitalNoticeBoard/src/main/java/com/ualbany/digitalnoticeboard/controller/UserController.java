@@ -152,7 +152,7 @@ public class UserController {
         ModelAndView mv = new ModelAndView("resetpassword");
         mv.addObject("user", userForm);
 
-        if (!userForm.getUsername().isBlank()) {
+        if (!userForm.getUsername().isEmpty()) {
             User usr = userService.findByUsername(userForm.getUsername());
             if (usr == null) {
                 bindingResult.rejectValue("username", "Invalid.userForm.username");

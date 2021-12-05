@@ -56,18 +56,7 @@
 <body>
 <div class="container">
   <div class="row">
-    <c:forEach var="note" items="${notices}">
-    <!-- <div class="notice">
-     <div class="notice-header">
-      <h3 class="notice-title">${note.title}</h3>
-     </div>
-     <div class=notice-body>
-      <p class=notice-summary>${note.summary}</p>
-      <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
-      <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
-      </div>
-    </div>-->
-   
+    <c:forEach var="note" items="${notices}">  
       <div class="col-ms-4">
       <div class="card notice" style="width: 25rem;">
         <h3 class="card-title bg-primary">${note.title}</h3>
@@ -75,7 +64,7 @@
           <p class=notice-summary>${note.summary}</p>
           <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
           <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
-          <button id="delete-button" onclick="deleteRecord(${note.id})" class="btn btn-primary">Delete</button>
+          <button id="delete-button" onclick="deleteRecord(${note.id})"><i class="fa fa-trash" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -90,7 +79,7 @@
  		      <p>${shnote.details}</p>
            <div>
  	      	<p>Expires at: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
-           <button id="delete-snote" onclick="deleteShortNoticeRecord(${shnote.id})" class="btn btn-primary float-right">Delete</button>
+           <button id="delete-snote" onclick="deleteShortNoticeRecord(${shnote.id})" class="btn btn-primary float-right"><i class="far fa-trash-alt"></i></button>
            </div>
 
  	   <!--</div>-->

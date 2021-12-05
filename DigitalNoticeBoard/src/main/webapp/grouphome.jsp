@@ -116,21 +116,27 @@
     </div>
     </div>
     </div>
-        <div class="item row">
-        	<h2>Members</h2>
-        	<c:forEach var="member" items="${curgrp.members}"> 
-        	   <div class="col-sm-3">
-                 <div class="shortnotice">
-            		<p>${member.user.email}</p>
-            		<p>${member.role}</p>
-            		<c:set var = "role" scope = "session" value = "${member.role}"/>
+
+
+	    	
+<div class="container">
+  <h2>Members</h2>
+  <ul class="list-group">
+  <c:forEach var="member" items="${curgrp.members}"> 
+  
+    <li class="list-group-item">${member.user.email}	${member.role}  
+    <c:set var = "role" scope = "session" value = "${member.role}"/>
             		<c:if test="${role != 'ADMIN'}" >
-            		<button class="btn btn-primary" style="width:60px; height:30px" onclick="promote('${member.id}')">promote</button>
+            		  <div class="btn-group btn-group-lg">
+					<button class="btn btn-primary" style="width:60px; height:30px" onclick="promote('${member.id}')">promote</button>
             		<button class="btn btn-primary" style="width:60px; height:30px" onclick="remove('${member.id}')">remove</button>
+  					</div>
             		</c:if>
-           	   	 </div>
-            	</div>   
-             </c:forEach>
+      </li>
+ 
+  </c:forEach>
+  </ul>
+ 	
         </div>
     </section>
     </div>

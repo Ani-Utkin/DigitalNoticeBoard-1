@@ -10,16 +10,16 @@
       <title>Create an account</title>
 
       <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-      <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+      <link href="${contextPath}/resources/css/signup.css" rel="stylesheet">
       
       
   </head>
 
   <body background="https://i.pinimg.com/564x/03/1d/75/031d75d9a633a918c30d91b82c255f97.jpg">
       <div class="container">
-
+      	<h2 class="form-signin-heading">Create your account</h2>
         <form:form method="POST" action="${contextPath}/signup" modelAttribute="userForm" class="form-signin">
-            <h2 class="form-signin-heading">Create your account</h2>
+          <div class="row">
             <spring:bind path="username">
                 <div class=" errorblock form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="text" path="username" class="form-control" placeholder="Username"
@@ -27,7 +27,7 @@
                     <form:errors path="username"></form:errors>
                 </div>
             </spring:bind>
-
+           </div> 
 			 <spring:bind path="email">
                 <div class="errorblock form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="text" path="email" name="email" class="form-control" placeholder="Email"></form:input>
@@ -52,9 +52,7 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
             <h3 class="text-center"><a href="${contextPath}/signin">Already Have an Account ? Sign in</a></h3>
         </form:form>
-
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
     <script>

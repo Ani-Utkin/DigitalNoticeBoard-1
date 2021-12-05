@@ -16,6 +16,7 @@
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/home.css" rel="stylesheet">
+<link href="${contextPath}/resources/css/editform.css" rel="stylesheet">
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -55,8 +56,7 @@
   </div>
 </nav>
 <body>
-<div class="container">
-
+	<div class="container">
         <form:form method="POST" action="${contextPath}/${user.username}/notice/addNotice" modelAttribute="noticeForm">
             <h2 class="channel-title">Add Notice</h2>
             <spring:bind path="title">

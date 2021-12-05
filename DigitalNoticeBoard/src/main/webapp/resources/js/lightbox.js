@@ -2,7 +2,14 @@ function closeLightBox(){
     document.getElementById('Lightbox').style.display = 'none';
 }
 
-function openLightBox() {
+function openLightBox(title,summary,details,createdAt,expirationDate) {
+    document.getElementById('lightbox-notice-title').innerHTML = title;
+    document.getElementById('lightbox-notice-summary').innerHTML = summary;
+    document.getElementById('lightbox-notice-detail').innerHTML = details;
+    var createdDate = new Date(createdAt);
+    document.getElementById('lightbox-notice-createdAt').innerHTML = createdDate.getFullYear()+'-'+(createdDate.getMonth()+1)+'-'+createdDate.getDate();
+    var expiredDate = new Date(expirationDate);
+    document.getElementById('lightbox-notice-expirationDate').innerHTML = expiredDate.getFullYear()+'-'+(expiredDate.getMonth()+1)+'-'+expiredDate.getDate();
     document.getElementById('Lightbox').style.display = 'block';
 }
 
@@ -14,18 +21,3 @@ function showNoticeSummary(n){
     document.getElementById('lightbox-notice-summary').innerHTML = n
 }
 
-function showEmailNoticeTitle(n){
-    document.getElementById('email-title').value = n
-}
-
-function showEmailNoticeSummary(n){
-    document.getElementById('email-text').value = n
-}
-
-function showNoticeCreateDate(n){
-    // document.getElementById('lightbox-notice-creationtime').value = n
-}
-
-function showNoticeExpireDate(n){
-   // document.getElementById('lightbox-notice-expirationtime').value = n
-}

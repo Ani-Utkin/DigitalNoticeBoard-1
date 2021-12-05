@@ -78,13 +78,12 @@
 						<div class=notice-body>
 						 <p class=notice-summary>${note.summary}</p>
 						 <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
-						 <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
+						 <p class=notice-expirationtime><strong>Expire Date :</strong>><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
 					  </div>
-					  <button class="bookmarkbutto btn btn-primary" onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button>
-					  <button  class="btn btn-primary" onclick="openLightBox(); 
-						 showNoticeTitle('${note.title}'); 
-						 showNoticeSummary('${note.summary}');" style="width:60px; height:30px">View</button>
-					  <button class="btn btn-primary" style="width:60px; height:30px" onclick="share('${note.title}', '${note.summary}')">share</button>
+					  
+					  <button class="bookmarkbutto btn btn-primary" onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px"><i class="fa fa-bookmark" aria-hidden="true"></i></button>
+					  <button  class="btn btn-primary" onclick="openLightBox('${note.title}','${note.summary}','${note.details}','${note.createdAt}','${note.expirationDate}');" style="width:60px; height:30px"><i class="fa fa-eye" aria-hidden="true"></i></button>
+					  <button class="btn btn-primary" style="width:60px; height:30px" onclick="share('${note.title}', '${note.summary}')"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
 					   </div>
 					   </c:forEach>
 					  </div>
@@ -99,7 +98,7 @@
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
             		<p>Expires at: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
-            	   <button class=sharebutton onclick="shareShort('${shnote.details}')" style="width:60px; height:30px">share</button>
+            	   <button class=sharebutton onclick="shareShort('${shnote.details}')" style="width:60px; height:30px"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
             	   </div>           	   
                </c:forEach>
              </div>
@@ -110,12 +109,15 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 				<div class="modal-header">
-				  <h3 id="lightbox-notice-title" class="modal-title">${note.title}</h3>
+				  <h3 id="lightbox-notice-title" class="modal-title"></h3>
 				  <span type="button" class="model-close pointer"  onclick="closeLightBox()" aria-label="Close">X</span>
 				</div>
 				<div class="modal-body">
-				 <p id="lightbox-notice-summary" class=notice-summary>${note.summary}</p>
-				 <button class=bookmarkbutton onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px">BM</button> 
+				 <p id="lightbox-notice-summary" class=notice-summary></p>
+				 <div id="lightbox-notice-detail" class=notice-summary></div>
+				  <p><strong>Created Date :</strong><span id="lightbox-notice-createdAt"></span></p>
+				  <p><strong>Expire Date :</strong><span id="lightbox-notice-expirationDate"></span></p>
+				 <button class=bookmarkbutton onclick="onBookMarkNotice('username', 'id')" style="width:60px; height:30px"><i class="fa fa-bookmark" aria-hidden="true"></i></button> 
 				<!--<button class=sharebutton onclick="share('${note.title}', '${note.summary}')" style="width:60px; height:30px">share</button> --> 
 				</div>
 			</div>
