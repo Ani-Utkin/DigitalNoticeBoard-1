@@ -14,7 +14,7 @@ import com.ualbany.digitalnoticeboard.model.Status;
 public interface ChannelRepository extends JpaRepository<Channel, Long> {
 	public List<Channel> findByStatus(Status status);
 	
-	@Query("select distinct channel from Channel channel join channel.notices notice where notice.expirationDate >=:expirationDate")
+	@Query("select distinct channel from Channel channel join fetch channel.notices notice where notice.expirationDate >=:expirationDate")
 	public List<Channel> findByNoticeExpirationDateGraterThanEqual(@Param("expirationDate") Date date);
 	
 	@Query("select channel from Channel channel where channel.title in (:titles)")

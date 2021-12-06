@@ -78,7 +78,7 @@
 						<div class=notice-body>
 						 <p class=notice-summary>${note.summary}</p>
 						 <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
-						 <p class=notice-expirationtime><strong>Expire Date :</strong>><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
+						 <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
 					  </div>
 					  
 					  <button class="bookmarkbutto btn btn-primary" onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px"><i class="fa fa-bookmark" aria-hidden="true"></i></button>
@@ -97,7 +97,7 @@
                <c:forEach var="shnote" items="${ShortNotices}"> 
                  <div class="shortnotice">
             		<p>${shnote.details}</p>
-            		<p>Expires at: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
+            		<p>Expires at: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" timeZone="US/Eastern"/></p>
             	   <button class=sharebutton onclick="shareShort('${shnote.details}')" style="width:60px; height:30px"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
             	   </div>           	   
                </c:forEach>

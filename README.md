@@ -8,6 +8,3 @@ Steps to run the application.
 2. Update the src\main\resources\application.properties file with the correct db link and email verification links
 3. Then run using ./mvnw spring-boot:run
 
-
-
-
