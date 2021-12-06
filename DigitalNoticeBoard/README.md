@@ -26,6 +26,7 @@ you should be able to clone it successfully Once cloned,open your IDE We used Ec
 Let us Consider Eclipse 
 Open Eclipse 
 Import the project as existing Maven Projects 
+Install all required modules by npm install
 Then ---> Digital Notice Board --->src/main/java --->com.ualbany.digitalnoticeboard
 
 You should be able to see DigitalNoticeBoardApplication.java 
