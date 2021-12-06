@@ -7,9 +7,9 @@ function openLightBox(title,summary,details,createdAt,expirationDate) {
     document.getElementById('lightbox-notice-summary').innerHTML = summary;
     document.getElementById('lightbox-notice-detail').innerHTML = details;
     var createdDate = new Date(createdAt);
-    document.getElementById('lightbox-notice-createdAt').innerHTML = createdDate.getFullYear()+'-'+(createdDate.getMonth()+1)+'-'+createdDate.getDate();
+    document.getElementById('lightbox-notice-createdAt').innerHTML = createdDate.toLocaleDateString('en-US');
     var expiredDate = new Date(expirationDate);
-    document.getElementById('lightbox-notice-expirationDate').innerHTML = expiredDate.getFullYear()+'-'+(expiredDate.getMonth()+1)+'-'+expiredDate.getDate();
+    document.getElementById('lightbox-notice-expirationDate').innerHTML = expiredDate.toLocaleDateString('en-US');
     document.getElementById('Lightbox').style.display = 'block';
 }
 
