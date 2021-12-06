@@ -82,7 +82,7 @@
 					  </div>
 					  
 					  <button class="bookmarkbutto btn btn-primary" onclick="onBookMarkNotice('${user.username}', '${note.id}')" style="width:60px; height:30px"><i class="fa fa-bookmark" aria-hidden="true"></i></button>
-					  <button  class="btn btn-primary" onclick="openLightBox('${note.title}','${note.summary}','${note.details}','${note.createdAt}','${note.expirationDate}');" style="width:60px; height:30px"><i class="fa fa-eye" aria-hidden="true"></i></button>
+					  <button class="btn btn-primary" onclick="openLightBox('${note.title}','${note.summary}','${note.details}','${note.createdAt}','${note.expirationDate}','${user.username}', '${note.id}');" style="width:60px; height:30px"><i class="fa fa-eye" aria-hidden="true"></i></button>
 					  <button class="btn btn-primary" style="width:60px; height:30px" onclick="share('${note.title}', '${note.summary}')"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
 					   </div>
 					   </c:forEach>
@@ -117,7 +117,6 @@
 				 <div id="lightbox-notice-detail" class=notice-summary></div>
 				  <p><strong>Created Date :</strong><span id="lightbox-notice-createdAt"></span></p>
 				  <p><strong>Expire Date :</strong><span id="lightbox-notice-expirationDate"></span></p>
-				 <button class=bookmarkbutton onclick="onBookMarkNotice('username', 'id')" style="width:60px; height:30px"><i class="fa fa-bookmark" aria-hidden="true"></i></button> 
 				<!--<button class=sharebutton onclick="share('${note.title}', '${note.summary}')" style="width:60px; height:30px">share</button> --> 
 				</div>
 			</div>

@@ -14,6 +14,7 @@ import com.ualbany.digitalnoticeboard.model.Channel;
 import com.ualbany.digitalnoticeboard.model.Group;
 import com.ualbany.digitalnoticeboard.model.ShortNotice;
 import com.ualbany.digitalnoticeboard.model.User;
+import com.ualbany.digitalnoticeboard.model.UserRoleType;
 import com.ualbany.digitalnoticeboard.service.ChannelService;
 import com.ualbany.digitalnoticeboard.service.GroupService;
 import com.ualbany.digitalnoticeboard.service.ShortNoticeService;
@@ -50,6 +51,9 @@ public class HomeController extends BaseController{
     public ModelAndView userHomeGet(@PathVariable final String username, Model model) {
 		User user = userService.findByUsername(username);
 		ModelAndView mv = new ModelAndView("userhome");
+		if (user.getRoles().get(0).getRoleType() == UserRoleType.ADMIN) {
+			mv = new ModelAndView("adminhome");
+		}
 		mv.addObject("user", user);
         List<Channel> channels = channelService.getChannelsWithValidNotices();
         mv.addObject("Channels", channels);

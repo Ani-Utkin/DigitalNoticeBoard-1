@@ -75,12 +75,10 @@
           	      <p class=notice-expirationtime><strong>Created Date :</strong><fmt:formatDate value="${note.createdAt}" pattern="yyyy-MM-dd" /></p>
           	      <p class=notice-expirationtime><strong>Expire Date :</strong><fmt:formatDate value="${note.expirationDate}" pattern="yyyy-MM-dd" /></p>
                  </div>
-                 <button  class="btn btn-primary" onclick="openLightBox(); 
-						       showNoticeTitle('${note.title}'); 
-						       showNoticeSummary('${note.summary}');" style="width:60px; height:30px">View</button>
+                 <button  id="view-button" onclick="openLightBox('${note.title}','${note.summary}','${note.details}','${note.createdAt}','${note.expirationDate}','${user.username}', '${note.id}');" style="width:60px; height:30px"><i class="fa fa-eye" aria-hidden="true"></i></button>
 				  <c:set var = "role" scope = "session" value = "${usergrprole}"/>
 	           	  <c:if test="${role == 'ADMIN'}" >
-	           		<button class="btn btn-primary" style="width:60px; height:30px" onclick="deletenotice('${note.id}')">delete</button>
+	           		<button id="delete-button" style="width:60px; height:30px" onclick="deletenotice('${note.id}')"><i class="fa fa-trash" aria-hidden="true"></i></button>
 	           	  </c:if>
           	    </div>
           	   </c:forEach>
@@ -95,7 +93,7 @@
             		<p>Expired by: <fmt:formatDate value="${shnote.expirationDate}" type="time" pattern="HH:mm" /></p>
             		<c:set var = "role" scope = "session" value = "${usergrprole}"/>
 		           	  <c:if test="${role == 'ADMIN'}" >
-		           		<button class="btn btn-primary" style="width:60px; height:30px" onclick="deleteshortnotice('${shnote.id}')">delete</button>
+		           		<button id="delete-button" style="width:60px; height:30px" onclick="deleteshortnotice('${shnote.id}')"><i class="fa fa-trash" aria-hidden="true"></i></button>
 		           	  </c:if>
             	  </div>
                </c:forEach>
@@ -104,20 +102,22 @@
 		</div>
 
     <div id="Lightbox" class="modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="lightbox-notice-title" class="modal-title">${note.title}</h3>
-        <span type="button" class="model-close pointer"  onclick="closeLightBox()" aria-label="Close">X</span>
-      </div>
-      <div class="modal-body">
-       <p id="lightbox-notice-summary" class=notice-summary>${note.summary}</p>
-     </div>
-    </div>
-    </div>
-    </div>
-
-
+				<div class="modal-dialog">
+					<div class="modal-content">
+				<div class="modal-header">
+				  <h3 id="lightbox-notice-title" class="modal-title"></h3>
+				  <span type="button" class="model-close pointer"  onclick="closeLightBox()" aria-label="Close">X</span>
+				</div>
+				<div class="modal-body">
+				 <p id="lightbox-notice-summary" class=notice-summary></p>
+				 <div id="lightbox-notice-detail" class=notice-summary></div>
+				  <p><strong>Created Date :</strong><span id="lightbox-notice-createdAt"></span></p>
+				  <p><strong>Expire Date :</strong><span id="lightbox-notice-expirationDate"></span></p>
+				<!--<button class=sharebutton onclick="share('${note.title}', '${note.summary}')" style="width:60px; height:30px">share</button> --> 
+				</div>
+			</div>
+			</div>
+		  </div>
 	    	
 <div class="container">
   <h2>Members</h2>
@@ -128,8 +128,8 @@
     <c:set var = "role" scope = "session" value = "${member.role}"/>
             		<c:if test="${role != 'ADMIN'}" >
             		  <div class="btn-group btn-group-lg">
-					<button class="btn btn-primary" style="width:60px; height:30px; margin:5px" onclick="promote('${member.id}')"><i class="fa fa-level-up" aria-hidden="true"></i> promote</button>
-            		<button class="btn btn-primary" style="width:60px; height:30px; margin:5px" onclick="remove('${member.id}')"><i class="fa fa-ban" aria-hidden="true"></i> remove</button>
+					<button class="btn btn-primary" style="width:80px; height:30px; margin:5px" onclick="promote('${member.id}')"><i class="fa fa-level-up" aria-hidden="true"></i> promote</button>
+            		<button class="btn btn-primary" style="width:80px; height:30px; margin:5px" onclick="remove('${member.id}')"><i class="fa fa-ban" aria-hidden="true"></i> remove</button>
   					</div>
             		</c:if>
       </li>
@@ -145,6 +145,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/lightbox.js"></script>
     <script>
 	  var contextPath="${contextPath}";
 	  var userName="${user.username}";

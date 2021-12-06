@@ -208,6 +208,13 @@ header {
 	border-color: #4e70f9 !important;
 }
 
+#view-button,.slick-slide button,
+.card-body button,.card-body .btn, 
+.btn-primary {
+	background: #4e70f9 !important;
+	border-color: #4e70f9 !important;
+}
+
 a.dropdown-item{color:#000000!important;}
    
   

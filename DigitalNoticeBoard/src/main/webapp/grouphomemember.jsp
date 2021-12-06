@@ -105,9 +105,29 @@
         </div>
     </section>
     </div>
+    <div id="Lightbox" class="modal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+				<div class="modal-header">
+				  <h3 id="lightbox-notice-title" class="modal-title"></h3>
+				  <span type="button" class="model-close pointer"  onclick="closeLightBox()" aria-label="Close">X</span>
+				</div>
+				<div class="modal-body">
+				 <p id="lightbox-notice-summary" class=notice-summary></p>
+				 <div id="lightbox-notice-detail" class=notice-summary></div>
+				  <p><strong>Created Date :</strong><span id="lightbox-notice-createdAt"></span></p>
+				  <p><strong>Expire Date :</strong><span id="lightbox-notice-expirationDate"></span></p>
+				  <button  id="view-button" onclick="openLightBox('${note.title}','${note.summary}','${note.details}','${note.createdAt}','${note.expirationDate}','${user.username}', '${note.id}');" style="width:60px; height:30px"><i class="fa fa-eye" aria-hidden="true"></i></button>
+				<!--<button class=sharebutton onclick="share('${note.title}', '${note.summary}')" style="width:60px; height:30px">share</button> --> 
+				</div>
+			</div>
+			</div>
+		  </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/lightbox.js"></script>
 </body>
 </html>
