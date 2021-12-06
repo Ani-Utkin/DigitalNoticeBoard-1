@@ -73,6 +73,8 @@ public class GroupController extends BaseController{
 		User user = userService.findByUsername(username);
 	    ModelAndView mv = new ModelAndView("addgroup");
         mv.addObject("user", user);
+        List<Group> groups = groupService.getUserGroups(user);
+    	mv.addObject("groups", groups);
         return mv;
     }
 	 

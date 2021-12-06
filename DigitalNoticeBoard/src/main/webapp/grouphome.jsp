@@ -128,8 +128,8 @@
     <c:set var = "role" scope = "session" value = "${member.role}"/>
             		<c:if test="${role != 'ADMIN'}" >
             		  <div class="btn-group btn-group-lg">
-					<button class="btn btn-primary" style="width:60px; height:30px" onclick="promote('${member.id}')">promote</button>
-            		<button class="btn btn-primary" style="width:60px; height:30px" onclick="remove('${member.id}')">remove</button>
+					<button class="btn btn-primary" style="width:60px; height:30px; margin:5px" onclick="promote('${member.id}')"><i class="fa fa-level-up" aria-hidden="true"></i> promote</button>
+            		<button class="btn btn-primary" style="width:60px; height:30px; margin:5px" onclick="remove('${member.id}')"><i class="fa fa-ban" aria-hidden="true"></i> remove</button>
   					</div>
             		</c:if>
       </li>
